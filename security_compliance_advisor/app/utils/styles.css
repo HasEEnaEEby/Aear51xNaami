@@ -381,3 +381,40 @@
     visibility: visible;
     opacity: 1;
 }
+
+
+/* Hide the file navigator panel in the sidebar */
+[data-testid="stSidebarNav"] {
+    display: none !important;
+}
+
+/* Alternative approach if the above doesn't work */
+.stSidebar [data-testid="stSidebarNav"] {
+    visibility: hidden;
+}
+
+/* Hide the top part of the sidebar containing the file navigation */
+.sidebar .sidebar-content>div:first-child {
+    display: none;
+}
+
+/* Sometimes this selector works better */
+.sidebar-content>div:first-child {
+    display: none !important;
+}
+
+/* An even more aggressive approach that may be needed */
+.css-1d391kg,
+.css-1d391kg>div:first-child {
+    display: none !important;
+}
+
+/* For Streamlit's newer versions, try this selector */
+[data-testid="collapsedControl"] {
+    display: none;
+}
+
+/* Hide the X close button at the top */
+.sidebar .sidebar-close-button {
+    display: none !important;
+}
