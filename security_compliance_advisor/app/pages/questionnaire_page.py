@@ -13,7 +13,7 @@ from core.advisor.security_advisor import SecurityAdvisor
 from core.compliance.policy_processor import PolicyProcessor
 from core.risk.risk_scoring_model import RiskScoringModel
 from core.compliance.compliance_knowledge import ComplianceKnowledge
-from app.utils.styles import apply_styling
+from app.utils.styles.css import apply_styling
 
 class QuestionnairePage:
     """Interactive questionnaire for security compliance assessment"""
