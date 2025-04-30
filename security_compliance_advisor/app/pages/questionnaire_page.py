@@ -12,7 +12,6 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-# Import questionnaire processor
 from core.advisor.questionnaire_processor import QuestionnaireProcessor
 from core.risk.risk_scoring_model import RiskScoringModel
 
@@ -28,7 +27,6 @@ class QuestionnairePage:
         """
         self.security_advisor = security_advisor
         
-        # Initialize questionnaire processor if not available through security advisor
         if not security_advisor:
             self.questionnaire_processor = QuestionnaireProcessor()
             self.risk_model = RiskScoringModel()
@@ -36,7 +34,7 @@ class QuestionnairePage:
             self.questionnaire_processor = security_advisor.questionnaire_processor
             self.risk_model = security_advisor.risk_model
         
-        # Initialize session state for questionnaire data
+        # Initialize session state variables if they don't exist
         if "questionnaire_data" not in st.session_state:
             st.session_state.questionnaire_data = {}
             
@@ -48,6 +46,19 @@ class QuestionnairePage:
             
         if "uploaded_file_name" not in st.session_state:
             st.session_state.uploaded_file_name = None
+        
+        # Initialize frameworks if it doesn't exist
+        if "frameworks" not in st.session_state:
+            st.session_state.frameworks = {
+                "iso27001": {"name": "ISO/IEC 27001", "description": "International standard for information security management", "coverage": 0},
+                "nist_csf": {"name": "NIST Cybersecurity Framework", "description": "Framework for improving critical infrastructure cybersecurity", "coverage": 0},
+                "gdpr": {"name": "GDPR", "description": "EU regulation on data protection and privacy", "coverage": 0},
+                "hipaa": {"name": "HIPAA", "description": "US healthcare privacy and security regulation", "coverage": 0},
+                "pci_dss": {"name": "PCI DSS", "description": "Payment card industry security standard", "coverage": 0},
+                "ccpa": {"name": "CCPA", "description": "California Consumer Privacy Act", "coverage": 0},
+                "cis": {"name": "CIS Controls", "description": "Critical security controls for cyber defense", "coverage": 0},
+                "hitrust": {"name": "HITRUST CSF", "description": "Healthcare industry security framework", "coverage": 0}
+            }
     
     def render(self):
         """Render the questionnaire page"""
@@ -612,42 +623,6 @@ class QuestionnairePage:
                     else:
                         st.write("None")
     
-    def _run_risk_assessment(self, questionnaire_data):
-        """
-        Run risk assessment on the questionnaire data
-        
-        Args:
-            questionnaire_data: Processed questionnaire data dictionary
-        """
-        try:
-            with st.spinner("Running risk assessment..."):
-                # Use security advisor if available
-                if self.security_advisor:
-                    assessment = self.security_advisor.analyze_questionnaire(questionnaire_data)
-                    recommendations = self.security_advisor.generate_recommendations(assessment)
-                else:
-                    # Otherwise use the components directly
-                    processed_data = self.questionnaire_processor.process_questionnaire(questionnaire_data)
-                    assessment = self.risk_model.score_risk(processed_data)
-                    recommendations = self.risk_model.generate_recommendations(assessment)
-                
-                # Store assessment and recommendations in session state
-                st.session_state.assessment = assessment
-                st.session_state.recommendations = recommendations
-                
-                # Update framework compliance in session state
-                if 'framework_compliance' in assessment:
-                    for framework_id, compliance_data in assessment['framework_compliance'].items():
-                        if framework_id in st.session_state.frameworks:
-                            st.session_state.frameworks[framework_id]['coverage'] = compliance_data.get('compliance_score', 0)
-                
-                return assessment
-                
-        except Exception as e:
-            st.error(f"Error running risk assessment: {str(e)}")
-            st.exception(e)
-            return None
-    
     def _display_template_options(self):
         """Display options to download questionnaire templates"""
         st.subheader("Sample Templates")
@@ -741,10 +716,57 @@ class QuestionnairePage:
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
     
+    def _run_risk_assessment(self, questionnaire_data):
+        """
+        Run risk assessment on the questionnaire data
+        
+        Args:
+            questionnaire_data: Processed questionnaire data dictionary
+        """
+        try:
+            with st.spinner("Running risk assessment..."):
+                if self.security_advisor:
+                    processed_data = self.security_advisor.questionnaire_processor.process_questionnaire(questionnaire_data)
+                    assessment = self.security_advisor.risk_model.assess_risk(processed_data)
+                    recommendations = self.security_advisor.risk_model.generate_recommendations(assessment)
+                else:
+                    # Otherwise use the components directly
+                    processed_data = self.questionnaire_processor.process_questionnaire(questionnaire_data)
+                    assessment = self.risk_model.assess_risk(processed_data)
+                    recommendations = self.risk_model.generate_recommendations(assessment)
+                
+                # Store assessment and recommendations in session state
+                st.session_state.assessment = assessment
+                st.session_state.recommendations = recommendations
+                
+                # Update framework compliance in session state
+                if 'framework_compliance' in assessment:
+                    # Make sure frameworks exists in session state
+                    if "frameworks" not in st.session_state:
+                        st.session_state.frameworks = {
+                            "iso27001": {"name": "ISO/IEC 27001", "description": "International standard for information security management", "coverage": 0},
+                            "nist_csf": {"name": "NIST Cybersecurity Framework", "description": "Framework for improving critical infrastructure cybersecurity", "coverage": 0},
+                            "gdpr": {"name": "GDPR", "description": "EU regulation on data protection and privacy", "coverage": 0},
+                            "hipaa": {"name": "HIPAA", "description": "US healthcare privacy and security regulation", "coverage": 0},
+                            "pci_dss": {"name": "PCI DSS", "description": "Payment card industry security standard", "coverage": 0}
+                        }
+                    
+                    for framework_id, compliance_data in assessment['framework_compliance'].items():
+                        if framework_id in st.session_state.frameworks:
+                            st.session_state.frameworks[framework_id]['coverage'] = compliance_data.get('compliance_score', 0)
+                
+                return assessment
+                
+        except Exception as e:
+            st.error(f"Error running risk assessment: {str(e)}")
+            st.exception(e)
+            return None
+    
     def _go_to_dashboard(self):
         """Redirect to the dashboard page"""
         st.session_state.current_page = 'dashboard'
         st.experimental_rerun()
+
 
 def render_questionnaire_page(security_advisor=None):
     """
@@ -755,6 +777,7 @@ def render_questionnaire_page(security_advisor=None):
     """
     page = QuestionnairePage(security_advisor)
     page.render()
+
 
 if __name__ == "__main__":
     render_questionnaire_page()

@@ -1,191 +1,112 @@
-import streamlit as st
+"""
+Frameworks page for Security Compliance Advisor
+This page displays compliance frameworks and their requirements.
+"""
 
-def render_frameworks_page(compliance_knowledge=None):
+import streamlit as st
+import pandas as pd
+import numpy as np
+import json
+from datetime import datetime
+
+def _display_controls_list(controls):
     """
-    Render the compliance frameworks information page
-    
-    This page displays detailed information about various security and 
-    compliance frameworks that organizations might need to adhere to.
+    Display a list of controls in an organized way
     
     Args:
-        compliance_knowledge: Optional ComplianceKnowledgeBase instance for dynamic framework data
+        controls: List of control dictionaries with domain and controls
     """
-    st.markdown('<h1 class="main-header">Compliance Frameworks</h1>', unsafe_allow_html=True)
+    for control_group in controls:
+        domain = control_group.get('domain', '')
+        control_list = control_group.get('controls', [])
+        
+        st.markdown(f"### {domain}")
+        
+        for control in control_list:
+            st.markdown(f"- {control}")
+        
+        st.markdown("---")
+
+def render_frameworks_page(compliance_kb=None):
+    """
+    Render the frameworks page
     
-    # Display introduction card
-    _display_introduction_card()
+    Args:
+        compliance_kb: ComplianceKnowledge instance (optional)
+    """
+    st.title("Compliance Frameworks")
     
-    # Get framework data (either from knowledge base or use static data)
-    frameworks_data = _get_frameworks_data(compliance_knowledge)
+    # Initialize session state
+    if "frameworks" not in st.session_state:
+        st.session_state.frameworks = {
+            "iso27001": {"name": "ISO/IEC 27001", "description": "International standard for information security management", "coverage": 0},
+            "nist_csf": {"name": "NIST Cybersecurity Framework", "description": "Framework for improving critical infrastructure cybersecurity", "coverage": 0},
+            "gdpr": {"name": "GDPR", "description": "EU regulation on data protection and privacy", "coverage": 0},
+            "hipaa": {"name": "HIPAA", "description": "US healthcare privacy and security regulation", "coverage": 0},
+            "pci_dss": {"name": "PCI DSS", "description": "Payment card industry security standard", "coverage": 0}
+        }
     
-    # Display framework cards in two columns
+    # Instructions
+    st.markdown("""
+    ## Explore Compliance Frameworks
+    
+    This page provides information about major security and compliance frameworks. 
+    Use this to understand different regulatory requirements and how they relate to your organization.
+    
+    Your current compliance coverage is shown for each framework based on your most recent assessment.
+    """)
+    
+    # Display frameworks
+    st.subheader("Frameworks")
+    
+    # Create framework cards in a grid
     col1, col2 = st.columns(2)
     
-    # Distribute frameworks between columns
-    frameworks = list(frameworks_data.items())
-    mid_point = len(frameworks) // 2 + len(frameworks) % 2  # Ensure first column gets extra item if odd number
-    
     with col1:
-        for framework_id, framework in frameworks[:mid_point]:
-            render_framework_card(
-                framework['title'],
-                framework['description'],
-                framework['key_controls'],
-                framework['industries'],
-                framework['region']
-            )
-    
-    with col2:
-        for framework_id, framework in frameworks[mid_point:]:
-            render_framework_card(
-                framework['title'],
-                framework['description'],
-                framework['key_controls'],
-                framework['industries'],
-                framework['region']
-            )
-
-def _display_introduction_card():
-    """Display the introductory information about compliance frameworks"""
-    st.markdown("""
-    <div class="card">
-        <h3>Understanding Compliance Frameworks</h3>
-        <p>Compliance frameworks provide structured approaches to security, privacy, and risk management. They help organizations establish controls and processes to protect information assets and meet regulatory requirements.</p>
-        <p>Explore the common frameworks below to better understand their scope, requirements, and how they might apply to your organization.</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-def _get_frameworks_data(compliance_knowledge):
-    """
-    Get framework data either from knowledge base or use static data
-    
-    Args:
-        compliance_knowledge: ComplianceKnowledgeBase instance or None
+        st.info("**ISO 27001**  \nInternational standard for information security management")
         
-    Returns:
-        Dictionary of framework data
-    """
-    # If we have a knowledge base, use it to get dynamic framework data
-    if compliance_knowledge:
-        try:
-            return compliance_knowledge.get_all_frameworks()
-        except Exception as e:
-            st.error(f"Error loading frameworks from knowledge base: {str(e)}")
-            # Fall back to static data if there's an error
+    with col2:
+        st.info("**NIST CSF**  \nCybersecurity Framework for critical infrastructure") 
     
-    # Static framework data as fallback
-    return {
-        "iso27001": {
-            "title": "ISO/IEC 27001",
-            "description": "International standard for information security management systems (ISMS). Provides a systematic approach to managing sensitive information.",
-            "key_controls": ["Information Security Management", "Risk Assessment", "Security Policy", "Asset Management", "Access Control"],
-            "industries": ["Financial Services", "Healthcare", "Technology", "Government"],
-            "region": "global"
-        },
-        "nist_csf": {
-            "title": "NIST Cybersecurity Framework",
-            "description": "Voluntary framework consisting of standards, guidelines, and best practices to manage cybersecurity risk.",
-            "key_controls": ["Identify", "Protect", "Detect", "Respond", "Recover"],
-            "industries": ["Critical Infrastructure", "Government", "Financial Services", "Healthcare"],
-            "region": "us"
-        },
-        "hipaa": {
-            "title": "HIPAA",
-            "description": "Health Insurance Portability and Accountability Act sets standards for protecting sensitive patient health information.",
-            "key_controls": ["Privacy Rule", "Security Rule", "Breach Notification Rule", "Patient Rights", "Administrative Safeguards"],
-            "industries": ["Healthcare Providers", "Health Plans", "Healthcare Clearinghouses", "Business Associates"],
-            "region": "us"
-        },
-        "pci_dss": {
-            "title": "PCI DSS",
-            "description": "Payment Card Industry Data Security Standard is a set of security standards for organizations that handle credit card information.",
-            "key_controls": ["Secure Network", "Cardholder Data Protection", "Vulnerability Management", "Access Control", "Monitoring and Testing"],
-            "industries": ["Retail", "E-commerce", "Financial Services", "Hospitality"],
-            "region": "global"
-        },
-        "gdpr": {
-            "title": "GDPR",
-            "description": "General Data Protection Regulation is a regulation on data protection and privacy in the European Union and the European Economic Area.",
-            "key_controls": ["Lawful Processing", "Consent", "Data Subject Rights", "Privacy by Design", "Data Protection Officer"],
-            "industries": ["Any organization handling EU citizen data", "Online Services", "Multinational Corporations"],
-            "region": "eu"
-        },
-        "soc2": {
-            "title": "SOC 2",
-            "description": "Service Organization Control 2 is a framework for service organizations to demonstrate their controls relevant to security, availability, processing integrity, confidentiality, and privacy.",
-            "key_controls": ["Security", "Availability", "Processing Integrity", "Confidentiality", "Privacy"],
-            "industries": ["SaaS Providers", "Cloud Services", "Data Centers", "Managed Services"],
-            "region": "us"
-        },
-        "ccpa": {
-            "title": "CCPA/CPRA",
-            "description": "California Consumer Privacy Act/California Privacy Rights Act gives California residents certain rights regarding their personal information.",
-            "key_controls": ["Right to Know", "Right to Delete", "Right to Opt-Out", "Right to Non-Discrimination", "Data Protection"],
-            "industries": ["Any business serving California residents", "Online Services", "Retail", "Marketing"],
-            "region": "us-ca"
-        },
-        "nist_800_53": {
-            "title": "NIST 800-53",
-            "description": "Security and Privacy Controls for Federal Information Systems and Organizations provides a catalog of security and privacy controls.",
-            "key_controls": ["Access Control", "Awareness and Training", "Audit and Accountability", "Configuration Management", "Incident Response"],
-            "industries": ["Federal Agencies", "Government Contractors", "Critical Infrastructure"],
-            "region": "us"
-        }
-    }
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        st.info("**GDPR**  \nEU regulation on data protection and privacy")
+        
+    with col4:
+        st.info("**HIPAA**  \nUS healthcare privacy and security regulation")
+    
+    # Information about frameworks
+    st.subheader("About Compliance Frameworks")
+    
+    st.markdown("""
+    Compliance frameworks provide structured approaches to managing security and privacy risks. 
+    They typically include:
+    
+    - **Controls and requirements**: Specific security measures to implement
+    - **Assessment procedures**: Methods to evaluate compliance
+    - **Implementation guidance**: Best practices for meeting requirements
+    
+    To assess your compliance with these frameworks, upload a security questionnaire on the Questionnaire page.
+    """)
+    
+    # Add assessment option
+    st.markdown("### Take Action")
+    
+    assessment_col, resources_col = st.columns(2)
+    
+    with assessment_col:
+        st.markdown("Start a compliance assessment:")
+        if st.button("Begin Assessment", key="begin_assessment"):
+            st.session_state.current_page = 'upload'
+            st.experimental_rerun()
+    
+    with resources_col:
+        st.markdown("Get framework-specific guidance:")
+        if st.button("Chat with Advisor", key="chat_advisor"):
+            st.session_state.current_page = 'chat'
+            st.experimental_rerun()
 
-def render_framework_card(title, description, key_controls, industries, region):
-    """
-    Render a compliance framework card
-    
-    Args:
-        title: Framework title
-        description: Framework description
-        key_controls: List of key control categories
-        industries: List of applicable industries
-        region: Region code (global, us, eu, etc.)
-    """
-    # Map region to emoji flag
-    region_emoji = {
-        "global": "🌎",
-        "us": "🇺🇸",
-        "eu": "🇪🇺",
-        "uk": "🇬🇧",
-        "us-ca": "🇺🇸 (CA)",
-        "au": "🇦🇺",
-        "ca": "🇨🇦",
-        "jp": "🇯🇵"
-    }
-    
-    flag = region_emoji.get(region, "")
-    
-    st.markdown(f"""
-    <div class="framework-card">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h3>{title}</h3>
-            <div>{flag}</div>
-        </div>
-        <p>{description}</p>
-        <div style="margin-top: 1rem;">
-            <div style="font-weight: bold;">Key Control Categories:</div>
-            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
-    """, unsafe_allow_html=True)
-    
-    for control in key_controls:
-        st.markdown(f"<li>{control}</li>", unsafe_allow_html=True)
-    
-    st.markdown("""
-            </ul>
-        </div>
-        <div style="margin-top: 1rem;">
-            <div style="font-weight: bold;">Commonly Applied In:</div>
-            <div style="margin-top: 0.5rem;">
-    """, unsafe_allow_html=True)
-    
-    for industry in industries:
-        st.markdown(f"<span style='background-color: #E0F2FE; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem; font-size: 0.9rem;'>{industry}</span>", unsafe_allow_html=True)
-    
-    st.markdown("""
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+
+if __name__ == "__main__":
+    render_frameworks_page()
