@@ -1015,6 +1015,5 @@ if __name__ == "__main__":
     response = chatbot.process_message("Hello, I need help with security compliance")
     print(f"Bot: {response['text']}")
     
-    # Process another message
     response = chatbot.process_message("Can you tell me about ISO 27001?")
     print(f"Bot: {response['text']}")

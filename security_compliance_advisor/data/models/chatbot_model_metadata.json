@@ -1,0 +1,21 @@
+{
+  "trained_at": "2025-04-30T12:05:34.166790",
+  "num_policies": 16107,
+  "num_training_examples": 18,
+  "frameworks": [
+    "CCPA",
+    "GDPR",
+    "NIST 800-53",
+    "ISO",
+    "SCF",
+    "HIPPA",
+    "PCI-DSS",
+    "HITRUST",
+    "CIS",
+    "NIST CSF"
+  ],
+  "has_embeddings": true,
+  "training_data_path": "data/models/training_data.json",
+  "jsonl_path": "data/models/chatbot_training_data.jsonl",
+  "model_type": "no_api_mode"
+}

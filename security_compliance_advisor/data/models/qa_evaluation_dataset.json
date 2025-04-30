@@ -1,0 +1,227 @@
+[
+  {
+    "question": "What is CCPA?",
+    "policy_id": null,
+    "framework": "CCPA",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in CCPA?",
+    "policy_id": null,
+    "framework": "CCPA",
+    "control_id": null
+  },
+  {
+    "question": "What is GDPR?",
+    "policy_id": null,
+    "framework": "GDPR",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in GDPR?",
+    "policy_id": null,
+    "framework": "GDPR",
+    "control_id": null
+  },
+  {
+    "question": "What is NIST 800-53?",
+    "policy_id": null,
+    "framework": "NIST 800-53",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in NIST 800-53?",
+    "policy_id": null,
+    "framework": "NIST 800-53",
+    "control_id": null
+  },
+  {
+    "question": "What is ISO?",
+    "policy_id": null,
+    "framework": "ISO",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in ISO?",
+    "policy_id": null,
+    "framework": "ISO",
+    "control_id": null
+  },
+  {
+    "question": "What is SCF?",
+    "policy_id": null,
+    "framework": "SCF",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in SCF?",
+    "policy_id": null,
+    "framework": "SCF",
+    "control_id": null
+  },
+  {
+    "question": "What is HIPPA?",
+    "policy_id": null,
+    "framework": "HIPPA",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in HIPPA?",
+    "policy_id": null,
+    "framework": "HIPPA",
+    "control_id": null
+  },
+  {
+    "question": "What is PCI-DSS?",
+    "policy_id": null,
+    "framework": "PCI-DSS",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in PCI-DSS?",
+    "policy_id": null,
+    "framework": "PCI-DSS",
+    "control_id": null
+  },
+  {
+    "question": "What is HITRUST?",
+    "policy_id": null,
+    "framework": "HITRUST",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in HITRUST?",
+    "policy_id": null,
+    "framework": "HITRUST",
+    "control_id": null
+  },
+  {
+    "question": "What is CIS?",
+    "policy_id": null,
+    "framework": "CIS",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in CIS?",
+    "policy_id": null,
+    "framework": "CIS",
+    "control_id": null
+  },
+  {
+    "question": "What is NIST CSF?",
+    "policy_id": null,
+    "framework": "NIST CSF",
+    "control_id": null
+  },
+  {
+    "question": "How many controls are in NIST CSF?",
+    "policy_id": null,
+    "framework": "NIST CSF",
+    "control_id": null
+  },
+  {
+    "question": "Compare GDPR and HITRUST",
+    "policy_id": null,
+    "framework": [
+      "GDPR",
+      "HITRUST"
+    ],
+    "control_id": null
+  },
+  {
+    "question": "Compare NIST 800-53 and CIS",
+    "policy_id": null,
+    "framework": [
+      "NIST 800-53",
+      "CIS"
+    ],
+    "control_id": null
+  },
+  {
+    "question": "Compare HITRUST and PCI-DSS",
+    "policy_id": null,
+    "framework": [
+      "HITRUST",
+      "PCI-DSS"
+    ],
+    "control_id": null
+  },
+  {
+    "question": "Compare PCI-DSS and CIS",
+    "policy_id": null,
+    "framework": [
+      "PCI-DSS",
+      "CIS"
+    ],
+    "control_id": null
+  },
+  {
+    "question": "Compare NIST CSF and HIPPA",
+    "policy_id": null,
+    "framework": [
+      "NIST CSF",
+      "HIPPA"
+    ],
+    "control_id": null
+  },
+  {
+    "question": "What are the key components of a security program?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "How do I start implementing a compliance program?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "What is the difference between security and compliance?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "What frameworks should a healthcare organization follow?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "What are the most critical security controls?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "How do I prepare for a security audit?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "What documentation is needed for compliance?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "How often should security assessments be performed?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "What are the common security vulnerabilities?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  },
+  {
+    "question": "How do I develop a security policy?",
+    "policy_id": null,
+    "framework": null,
+    "control_id": null
+  }
+]

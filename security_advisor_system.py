@@ -7,11 +7,9 @@ from pathlib import Path
 import argparse
 import logging
 
-# Import our custom modules
-# Uncomment these when using the actual implementation
-# from compliance_knowledge_base import ComplianceKnowledgeBase
-# from security_advisor_chatbot import SecurityAdvisorChatbot
-# from explainable_risk_module import ExplainableRiskScoringModule
+from compliance_knowledge_base import ComplianceKnowledgeBase
+from security_advisor_chatbot import SecurityAdvisorChatbot
+from explainable_risk_module import ExplainableRiskScoringModule
 
 class SecurityAdvisorSystem:
     def __init__(self, 

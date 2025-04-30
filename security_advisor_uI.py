@@ -441,8 +441,7 @@ class SecurityAdvisorUI:
             )
         
         with col4:
-            # Calculate potential improvement
-            potential_improvement = min(100, risk_score * 0.3)  # Simplified estimate
+            potential_improvement = min(100, risk_score * 0.3)  
             self._render_metric_card(
                 "Potential Improvement", 
                 f"{potential_improvement:.1f}", 
@@ -450,17 +449,14 @@ class SecurityAdvisorUI:
                 "#D97706"
             )
         
-        # Risk breakdown and recommendations
         col1, col2 = st.columns([3, 2])
         
         with col1:
             st.markdown('<h2 class="sub-header">Risk Breakdown</h2>', unsafe_allow_html=True)
             
-            # Risk factors chart
             if explanation.get('top_factors'):
                 self._render_risk_factors_chart(explanation['top_factors'])
             
-            # Risk categories chart
             categories = explanation.get('categories', {})
             if categories:
                 self._render_risk_categories_chart(categories)
