@@ -1,0 +1,92 @@
+[
+    {
+        "Statement":"The organization shall determine external and internal issues that are relevant to its purpose and that affect its ability to achieve the intended outcome(s) of its information security management system."
+    },
+    {
+        "Statement":"The organization shall determine:\na) interested parties that are relevant to the information security management system;\nb) the relevant requirements of these interested parties;\nc) which of these requirements will be addressed through the information security management system."
+    },
+    {
+        "Statement":"The organization shall determine the boundaries and applicability of the information security management system to establish its scope.\nWhen determining this scope, the organization shall consider:\na) the external and internal issues referred to in 4.1;\nb) the requirements referred to in 4.2;\nc) interfaces and dependencies between activities performed by the organization, and those that are performed by other organizations.\nThe scope shall be available as documented information."
+    },
+    {
+        "Statement":"The organization shall establish, implement, maintain and continually improve an information security management system, including the processes needed and their interactions, in accordance with the requirements of this document."
+    },
+    {
+        "Statement":"Top management shall demonstrate leadership and commitment with respect to the information security management system by:\na) ensuring the information security policy and the information security objectives are established and are compatible with the strategic direction of the organization;\nb) ensuring the integration of the information security management system requirements into the organization's processes;\nc) ensuring that the resources needed for the information security management system are available;\nd) communicating the importance of effective information security management and of conforming to the information security management system requirements;\ne) ensuring that the information security management system achieves its intended outcome(s);\nf) directing and supporting persons to contribute to the effectiveness of the information security management system;\ng) promoting continual improvement; and\nh) supporting other relevant management roles to demonstrate their leadership as it applies to their areas of responsibility."
+    },
+    {
+        "Statement":"Top management shall establish an information security policy that:\na) is appropriate to the purpose of the organization;\nb) includes information security objectives (see 6.2) or provides the framework for setting information security objectives;\nc) includes a commitment to satisfy applicable requirements related to information security;\nd) includes a commitment to continual improvement of the information security management system.\nThe information security policy shall:\ne) be available as documented information;\nf) be communicated within the organization;\ng) be available to interested parties, as appropriate."
+    },
+    {
+        "Statement":"Top management shall ensure that the responsibilities and authorities for roles relevant to information security are assigned and communicated within the organization.\nTop management shall assign the responsibility and authority for:\na) ensuring that the information security management system conforms to the requirements of this document;\nb) reporting on the performance of the information security management system to top management."
+    },
+    {
+        "Statement":"General\nWhen planning for the information security management system, the organization shall consider the issues referred to in 4.1 and the requirements referred to in 4.2 and determine the risks and opportunities that need to be addressed to:\na) ensure the information security management system can achieve its intended outcome(s);\nb) prevent, or reduce, undesired effects;\nc) achieve continual improvement.\nThe organization shall plan:\nd) actions to address these risks and opportunities; and\ne) how to\ne) 1) integrate and implement the actions into its information security management system processes; and\ne) 2) evaluate the effectiveness of these actions."
+    },
+    {
+        "Statement":"Information security risk assessment\nThe organization shall define and apply an information security risk assessment process that:\na) establishes and maintains information security risk criteria that include:\na) 1) the risk acceptance criteria; and\na) 2) criteria for performing information security risk assessments;\nb) ensures that repeated information security risk assessments produce consistent, valid and comparable results;\nc) identifies the information security risks:\nc) 1) apply the information security risk assessment process to identify risks associated with the loss of confidentiality, integrity and availability for information within the scope of the information security management system; and\nc) 2) identify the risk owners;\nd) analyses the information security risks:\nd) 1) assess the potential consequences that would result if the risks identified in 6.1.2 c) 1) were to materialize;\nd) 2) assess the realistic likelihood of the occurrence of the risks identified in 6.1.2 c) 1); and\nd) 3) determine the levels of risk;\ne) evaluates the information security risks:\ne) 1) compare the results of risk analysis with the risk criteria established in 6.1.2 a); and\ne) 2) prioritize the analysed risks for risk treatment.\nThe organization shall retain documented information about the information security risk assessment process."
+    },
+    {
+        "Statement":"Information security risk treatment\nThe organization shall define and apply an information security risk treatment process to:\na) select appropriate information security risk treatment options, taking account of the risk assessment results;\nb) determine all controls that are necessary to implement the information security risk treatment option(s) chosen;\nc) compare the controls determined in 6.1.3 b) above with those in Annex A and verify that no necessary controls have been omitted;\nd) produce a Statement of Applicability that contains:\nd) 1) the necessary controls (see 6.1.3 b) and c));\nd) 2) justification for their inclusion;\nd) 3) whether the necessary controls are implemented or not; and\nd) 4) the justification for excluding any of the Annex A controls.\ne) formulate an information security risk treatment plan; and\nf) obtain risk owners' approval of the information security risk treatment plan and acceptance of the residual information security risks.\nThe organization shall retain documented information about the information security risk treatment process."
+    },
+    {
+        "Statement":"The organization shall establish information security objectives at relevant functions and levels.\nThe information security objectives shall:\na) be consistent with the information security policy;\nb) be measurable (if practicable);\nc) take into account applicable information security requirements, and results from risk assessment and risk treatment;\nd) be monitored;\ne) be communicated;\nf) be updated as appropriate;\ng) be available as documented information.\nThe organization shall retain documented information on the information security objectives.\nWhen planning how to achieve its information security objectives, the organization shall determine:\nh) what will be done;\ni) what resources will be required;\nj) who will be responsible;\nk) when it will be completed; and\nl) how the results will be evaluated."
+    },
+    {
+        "Statement":"When the organization determines the need for changes to the information security management system, the changes shall be carried out in a planned manner."
+    },
+    {
+        "Statement":"The organization shall determine and provide the resources needed for the establishment, implementation, maintenance and continual improvement of the information security management system."
+    },
+    {
+        "Statement":"The organization shall:\na) determine the necessary competence of person(s) doing work under its control that affects its information security performance;\nb) ensure that these persons are competent on the basis of appropriate education, training, or experience;\nc) where applicable, take actions to acquire the necessary competence, and evaluate the effectiveness of the actions taken; and\nd) retain appropriate documented information as evidence of competence."
+    },
+    {
+        "Statement":"Persons doing work under the organization's control shall be aware of:\na) the information security policy;\nb) their contribution to the effectiveness of the information security management system, including the benefits of improved information security performance; and\nc) the implications of not conforming with the information security management system requirements."
+    },
+    {
+        "Statement":"The organization shall determine the need for internal and external communications relevant to the information security management system including:\na) on what to communicate;\nb) when to communicate;\nc) with whom to communicate;\nd) how to communicate."
+    },
+    {
+        "Statement":"General\nThe organization's information security management system shall include:\na) documented information required by this document; and\nb) documented information determined by the organization as being necessary for the effectiveness of the information security management system."
+    },
+    {
+        "Statement":"Creating and updating\nWhen creating and updating documented information the organization shall ensure appropriate:\na) identification and description (e.g. a title, date, author, or reference number);\nb) format (e.g. language, software version, graphics) and media (e.g. paper, electronic); and\nc) review and approval for suitability and adequacy."
+    },
+    {
+        "Statement":"Control of documented information\nDocumented information required by the information security management system and by this document shall be controlled to ensure:\na) it is available and suitable for use, where and when it is needed; and\nb) it is adequately protected (e.g. from loss of confidentiality, improper use, or loss of integrity).\nFor the control of documented information, the organization shall address the following activities, as applicable:\nc) distribution, access, retrieval and use;\nd) storage and preservation, including the preservation of legibility;\ne) control of changes (e.g. version control); and\nf) retention and disposition.\nDocumented information of external origin, determined by the organization to be necessary for the planning and operation of the information security management system, shall be identified as appropriate, and controlled."
+    },
+    {
+        "Statement":"The organization shall plan, implement and control the processes needed to meet requirements, and to implement the actions determined in Clause 6, by:\na) establishing criteria for the processes;\nb) implementing control of the processes in accordance with the criteria.\nDocumented information shall be available to the extent necessary to have confidence that the processes have been carried out as planned.\nThe organization shall control planned changes and review the consequences of unintended changes, taking action to mitigate any adverse effects, as necessary.\nThe organization shall ensure that externally provided processes, products or services that are relevant to the information security management system are controlled."
+    },
+    {
+        "Statement":"The organization shall perform information security risk assessments at planned intervals or when significant changes are proposed or occur, taking account of the criteria established in 6.1.2 a).\nThe organization shall retain documented information of the results of the information security risk assessments."
+    },
+    {
+        "Statement":"The organization shall implement the information security risk treatment plan.\nThe organization shall retain documented information of the results of the information security risk treatment."
+    },
+    {
+        "Statement":"The organization shall determine:\na) what needs to be monitored and measured, including information security processes and controls;\nb) the methods for monitoring, measurement, analysis and evaluation, as applicable, to ensure valid results. The methods selected should produce comparable and reproducible results to be considered valid;\nc) when the monitoring and measuring shall be performed;\nd) who shall monitor and measure;\ne) when the results from monitoring and measurement shall be analysed and evaluated;\nf) who shall analyse and evaluate these results.\nDocumented information shall be available as evidence of the results.\nThe organization shall evaluate the information security performance and the effectiveness of the information security management system."
+    },
+    {
+        "Statement":"General\nThe organization shall conduct internal audits at planned intervals to provide information on whether the information security management system:\na) conforms to\na) 1) the organization's own requirements for its information security management system;\na) 2) the requirements of this document;\nb) is effectively implemented and maintained."
+    },
+    {
+        "Statement":"Internal audit programme\nThe organization shall plan, establish, implement and maintain an audit programme(s), including the frequency, methods, responsibilities, planning requirements and reporting.\nWhen establishing the internal audit programme(s), the organization shall consider the importance of the processes concerned and the results of previous audits.\nThe organization shall:\na) define the audit criteria and scope for each audit;\nb) select auditors and conduct audits that ensure objectivity and the impartiality of the audit process;\nc) ensure that the results of the audits are reported to relevant management;\nDocumented information shall be available as evidence of the implementation of the audit programme(s) and the audit results."
+    },
+    {
+        "Statement":"General\nTop management shall review the organization's information security management system at planned intervals to ensure its continuing suitability, adequacy and effectiveness."
+    },
+    {
+        "Statement":"Management review inputs\nThe management review shall include consideration of:\na) the status of actions from previous management reviews;\nb) changes in external and internal issues that are relevant to the information security management system;\nc) changes in needs and expectations of interested parties that are relevant to the information security management system;\nd) feedback on the information security performance, including trends in:\nd) 1) nonconformities and corrective actions;\nd) 2) monitoring and measurement results;\nd) 3) audit results;\nd) 4) fulfilment of information security objectives;\ne) feedback from interested parties;\nf) results of risk assessment and status of risk treatment plan;\ng) opportunities for continual improvement."
+    },
+    {
+        "Statement":"Management review results\nThe results of the management review shall include decisions related to continual improvement opportunities and any needs for changes to the information security management system.\nDocumented information shall be available as evidence of the results of management reviews."
+    },
+    {
+        "Statement":"The organization shall continually improve the suitability, adequacy and effectiveness of the information security management system."
+    },
+    {
+        "Statement":"When a nonconformity occurs, the organization shall:\na) react to the nonconformity, and as applicable:\na) 1) take action to control and correct it;\na) 2) deal with the consequences;\nb) evaluate the need for action to eliminate the causes of nonconformity, in order that it does not recur or occur elsewhere, by:\nb) 1) reviewing the nonconformity;\nb) 2) determining the causes of the nonconformity; and\nb) 3) determining if similar nonconformities exist, or could potentially occur;\nc) implement any action needed;\nd) review the effectiveness of any corrective action taken; and\ne) make changes to the information security management system, if necessary.\nCorrective actions shall be appropriate to the effects of the nonconformities encountered.\nDocumented information shall be available as evidence of:\nf) the nature of the nonconformities and any subsequent actions taken,\ng) the results of any corrective action."
+    }
+]

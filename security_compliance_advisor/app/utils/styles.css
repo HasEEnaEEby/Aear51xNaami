@@ -1,0 +1,308 @@
+/* Main header styles */
+.main-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1E3A8A;
+    margin-bottom: 1rem;
+}
+
+.sub-header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1E3A8A;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Card containers */
+.card {
+    border-radius: 10px;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Risk level indicators */
+.risk-very-low {
+    color: #059669;
+    font-weight: bold;
+}
+
+.risk-low {
+    color: #0284C7;
+    font-weight: bold;
+}
+
+.risk-moderate {
+    color: #D97706;
+    font-weight: bold;
+}
+
+.risk-high {
+    color: #DC2626;
+    font-weight: bold;
+}
+
+.risk-critical {
+    color: #7F1D1D;
+    font-weight: bold;
+}
+
+/* Chat message styling */
+.chat-message {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    max-width: 80%;
+}
+
+.chat-message.user {
+    background-color: #E0F2FE;
+    margin-left: auto;
+}
+
+.chat-message.bot {
+    background-color: #F3F4F6;
+    margin-right: auto;
+}
+
+/* Recommendation cards */
+.recommendation-card {
+    border-left: 4px solid #0284C7;
+    padding: 1rem;
+    background-color: #F0F9FF;
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-card.high-impact {
+    border-left: 4px solid #DC2626;
+}
+
+.recommendation-card.medium-impact {
+    border-left: 4px solid #D97706;
+}
+
+.recommendation-card.low-impact {
+    border-left: 4px solid #059669;
+}
+
+/* Framework cards */
+.framework-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+}
+
+.framework-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Metric cards for dashboard */
+.metric-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #6B7280;
+}
+
+/* Fix Streamlit UI elements */
+div.block-container {
+    padding-top: 2rem;
+}
+
+div.stButton>button {
+    width: 100%;
+}
+
+/* Questionnaire form styling */
+.stForm {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+/* Upload area styling */
+.upload-area {
+    border: 2px dashed #D1D5DB;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    background-color: #F9FAFB;
+    transition: all 0.2s;
+}
+
+.upload-area:hover {
+    border-color: #3B82F6;
+    background-color: #EFF6FF;
+}
+
+/* Progress indicators */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.progress-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.progress-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background-color: #E5E7EB;
+    z-index: -1;
+}
+
+.progress-step.active:not(:last-child)::after {
+    background-color: #3B82F6;
+}
+
+.progress-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #E5E7EB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    color: #6B7280;
+    font-weight: bold;
+}
+
+.progress-step.active .progress-circle {
+    background-color: #3B82F6;
+    color: white;
+}
+
+.progress-step.completed .progress-circle {
+    background-color: #059669;
+    color: white;
+}
+
+.progress-label {
+    font-size: 0.8rem;
+    color: #6B7280;
+}
+
+.progress-step.active .progress-label {
+    color: #1F2937;
+    font-weight: 600;
+}
+
+/* Highlight box for important information */
+.highlight-box {
+    background-color: #FFEDD5;
+    border-left: 4px solid #F59E0B;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-box.info {
+    background-color: #DBEAFE;
+    border-left-color: #3B82F6;
+}
+
+.highlight-box.warning {
+    background-color: #FEF3C7;
+    border-left-color: #F59E0B;
+}
+
+.highlight-box.error {
+    background-color: #FEE2E2;
+    border-left-color: #DC2626;
+}
+
+.highlight-box.success {
+    background-color: #D1FAE5;
+    border-left-color: #059669;
+}
+
+/* Framework control table */
+.control-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.control-table th {
+    background-color: #F3F4F6;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.control-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.control-table tr:hover {
+    background-color: #F9FAFB;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-badge.compliant {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.status-badge.non-compliant {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.status-badge.partial {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.status-badge.not-applicable {
+    background-color: #F3F4F6;
+    color: #4B5563;
+}

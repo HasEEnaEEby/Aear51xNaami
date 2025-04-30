@@ -1,0 +1,515 @@
+[
+    {
+        "Statement":"Actively manage (inventory, track, and correct) all enterprise assets (end-user devices, including portable and mobile; network devices; non-computing\/Internet of Things (IoT) devices; and servers) connected to the infrastructure physically, virtually, remotely, and those within cloud environments, to accurately know the totality of assets that need to be monitored and protected within the enterprise. This will also support identifying unauthorized and unmanaged assets to remove or remediate."
+    },
+    {
+        "Statement":"Establish and maintain an accurate, detailed, and up-to-date inventory of all enterprise assets with the potential to store or process data, to include: end-user devices (including portable and mobile), network devices, non-computing\/IoT devices, and servers. Ensure the inventory records the network address (if static), hardware address, machine name, data asset owner, department for each asset, and whether the asset has been approved to connect to the network. For mobile end-user devices, MDM type tools can support this process, where appropriate. This inventory includes assets connected to the infrastructure physically, virtually, remotely, and those within cloud environments. Additionally, it includes assets that are regularly connected to the enterprise's network infrastructure, even if they are not under control of the enterprise. Review and update the inventory of all enterprise assets bi-annually, or more frequently."
+    },
+    {
+        "Statement":"Ensure that a process exists to address unauthorized assets on a weekly basis. The enterprise may choose to remove the asset from the network, deny the asset from connecting remotely to the network, or quarantine the asset."
+    },
+    {
+        "Statement":"Utilize an active discovery tool to identify assets connected to the enterprise's network. Configure the active discovery tool to execute daily, or more frequently."
+    },
+    {
+        "Statement":"Use DHCP logging on all DHCP servers or Internet Protocol (IP) address management tools to update the enterprise's asset inventory. Review and use logs to update the enterprise's asset inventory weekly, or more frequently."
+    },
+    {
+        "Statement":"Use a passive discovery tool to identify assets connected to the enterprise's network. Review and use scans to update the enterprise's asset inventory at least weekly, or more frequently."
+    },
+    {
+        "Statement":"Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets."
+    },
+    {
+        "Statement":"Deploy and maintain anti-malware software on all enterprise assets."
+    },
+    {
+        "Statement":"Configure automatic updates for anti-malware signature files on all enterprise assets."
+    },
+    {
+        "Statement":"Disable autorun and autoplay auto-execute functionality for removable media."
+    },
+    {
+        "Statement":"Configure anti-malware software to automatically scan removable media."
+    },
+    {
+        "Statement":"Enable anti-exploitation features on enterprise assets and software, where possible, such as Microsoft\u00ae Data Execution Prevention (DEP), Windows\u00ae Defender Exploit Guard (WDEG), or Apple\u00ae System Integrity Protection (SIP) and GatekeeperTM."
+    },
+    {
+        "Statement":"Centrally manage anti-malware software."
+    },
+    {
+        "Statement":"Use behavior-based anti-malware software."
+    },
+    {
+        "Statement":"Establish and maintain data recovery practices sufficient to restore in-scope enterprise assets to a pre-incident and trusted state."
+    },
+    {
+        "Statement":"Establish and maintain a data recovery process. In the process, address the scope of data recovery activities, recovery prioritization, and the security of backup data. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Perform automated backups of in-scope enterprise assets. Run backups weekly, or more frequently, based on the sensitivity of the data."
+    },
+    {
+        "Statement":"Protect recovery data with equivalent controls to the original data. Reference encryption or data separation, based on requirements."
+    },
+    {
+        "Statement":"Establish and maintain an isolated instance of recovery data. Example implementations include version controlling backup destinations through offline, cloud, or off-site systems or services."
+    },
+    {
+        "Statement":"Test backup recovery quarterly, or more frequently, for a sampling of in-scope enterprise assets."
+    },
+    {
+        "Statement":"Establish, implement, and actively manage (track, report, correct) network devices, in order to prevent attackers from exploiting vulnerable network services and access points."
+    },
+    {
+        "Statement":"Ensure network infrastructure is kept up-to-date. Example implementations include running the latest stable release of software and\/or using currently supported network-as-a-service (NaaS) offerings. Review software versions monthly, or more frequently, to verify software support."
+    },
+    {
+        "Statement":"Establish and maintain a secure network architecture. A secure network architecture must address segmentation, least privilege, and availability, at a minimum."
+    },
+    {
+        "Statement":"Securely manage network infrastructure. Example implementations include version-controlled-infrastructure-as-code, and the use of secure network protocols, such as SSH and HTTPS."
+    },
+    {
+        "Statement":"Establish and maintain architecture diagram(s) and\/or other network system documentation. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Centralize network AAA."
+    },
+    {
+        "Statement":"Use secure network management and communication protocols (e.g., 802.1X, Wi-Fi Protected Access 2 (WPA2) Enterprise or greater)."
+    },
+    {
+        "Statement":"Require users to authenticate to enterprise-managed VPN and authentication services prior to accessing enterprise resources on end-user devices."
+    },
+    {
+        "Statement":"Establish and maintain dedicated computing resources, either physically or logically separated, for all administrative tasks or tasks requiring administrative access. The computing resources should be segmented from the enterprise's primary network and not be allowed internet access."
+    },
+    {
+        "Statement":"Operate processes and tooling to establish and maintain comprehensive network monitoring and defense against security threats across the enterprise's network infrastructure and user base."
+    },
+    {
+        "Statement":"Centralize security event alerting across enterprise assets for log correlation and analysis. Best practice implementation requires the use of a SIEM, which includes vendor-defined event correlation alerts. A log analytics platform configured with security-relevant correlation alerts also satisfies this Safeguard."
+    },
+    {
+        "Statement":"Perform application layer filtering. Example implementations include a filtering proxy, application layer firewall, or gateway."
+    },
+    {
+        "Statement":"Tune security event alerting thresholds monthly, or more frequently."
+    },
+    {
+        "Statement":"Deploy a host-based intrusion detection solution on enterprise assets, where appropriate and\/or supported."
+    },
+    {
+        "Statement":"Deploy a network intrusion detection solution on enterprise assets, where appropriate. Example implementations include the use of a Network Intrusion Detection System (NIDS) or equivalent cloud service provider (CSP) service."
+    },
+    {
+        "Statement":"Perform traffic filtering between network segments, where appropriate."
+    },
+    {
+        "Statement":"Manage access control for assets remotely connecting to enterprise resources. Determine amount of access to enterprise resources based on: up-to-date anti-malware software installed, configuration compliance with the enterprise's secure configuration process, and ensuring the operating system and applications are up-to-date."
+    },
+    {
+        "Statement":"Collect network traffic flow logs and\/or network traffic to review and alert upon from network devices."
+    },
+    {
+        "Statement":"Deploy a host-based intrusion prevention solution on enterprise assets, where appropriate and\/or supported. Example implementations include use of an Endpoint Detection and Response (EDR) client or host-based IPS agent."
+    },
+    {
+        "Statement":"Deploy a network intrusion prevention solution, where appropriate. Example implementations include the use of a Network Intrusion Prevention System (NIPS) or equivalent CSP service."
+    },
+    {
+        "Statement":"Deploy port-level access control. Port-level access control utilizes 802.1x, or similar network access control protocols, such as certificates, and may incorporate user and\/or device authentication."
+    },
+    {
+        "Statement":"Establish and maintain a security awareness program to influence behavior among the workforce to be security conscious and properly skilled to reduce cybersecurity risks to the enterprise."
+    },
+    {
+        "Statement":"Establish and maintain a security awareness program. The purpose of a security awareness program is to educate the enterprise's workforce on how to interact with enterprise assets and data in a secure manner. Conduct training at hire and, at a minimum, annually. Review and update content annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Train workforce members to recognize social engineering attacks, such as phishing, pre-texting, and tailgating."
+    },
+    {
+        "Statement":"Train workforce members on authentication best practices. Example topics include MFA, password composition, and credential management."
+    },
+    {
+        "Statement":"Train workforce members on how to identify and properly store, transfer, archive, and destroy sensitive data. This also includes training workforce members on clear screen and desk best practices, such as locking their screen when they step away from their enterprise asset, erasing physical and virtual whiteboards at the end of meetings, and storing data and assets securely."
+    },
+    {
+        "Statement":"Train workforce members to be aware of causes for unintentional data exposure. Example topics include mis-delivery of sensitive data, losing a portable end-user device, or publishing data to unintended audiences."
+    },
+    {
+        "Statement":"Train workforce members to be able to recognize a potential incident and be able to report such an incident."
+    },
+    {
+        "Statement":"Train workforce to understand how to verify and report out-of-date software patches or any failures in automated processes and tools. Part of this training should include notifying IT personnel of any failures in automated processes and tools."
+    },
+    {
+        "Statement":"Train workforce members on the dangers of connecting to, and transmitting data over, insecure networks for enterprise activities. If the enterprise has remote workers, training must include guidance to ensure that all users securely configure their home network infrastructure."
+    },
+    {
+        "Statement":"Conduct role-specific security awareness and skills training. Example implementations include secure system administration courses for IT professionals, OWASP\u00ae Top 10 vulnerability awareness and prevention training for web application developers, and advanced social engineering awareness training for high-profile roles."
+    },
+    {
+        "Statement":"Develop a process to evaluate service providers who hold sensitive data, or are responsible for an enterprise's critical IT platforms or processes, to ensure these providers are protecting those platforms and data appropriately."
+    },
+    {
+        "Statement":"Establish and maintain an inventory of service providers. The inventory is to list all known service providers, include classification(s), and designate an enterprise contact for each service provider. Review and update the inventory annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Establish and maintain a service provider management policy. Ensure the policy addresses the classification, inventory, assessment, monitoring, and decommissioning of service providers. Review and update the policy annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Classify service providers. Classification consideration may include one or more characteristics, such as data sensitivity, data volume, availability requirements, applicable regulations, inherent risk, and mitigated risk. Update and review classifications annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Ensure service provider contracts include security requirements. Example requirements may include minimum security program requirements, security incident and\/or data breach notification and response, data encryption requirements, and data disposal commitments. These security requirements must be consistent with the enterprise's service provider management policy. Review service provider contracts annually to ensure contracts are not missing security requirements."
+    },
+    {
+        "Statement":"Assess service providers consistent with the enterprise's service provider management policy. Assessment scope may vary based on classification(s), and may include review of standardized assessment reports, such as Service Organization Control 2 (SOC 2) and Payment Card Industry (PCI) Attestation of Compliance (AoC), customized questionnaires, or other appropriately rigorous processes. Reassess service providers annually, at a minimum, or with new and renewed contracts."
+    },
+    {
+        "Statement":"Monitor service providers consistent with the enterprise's service provider management policy. Monitoring may include periodic reassessment of service provider compliance, monitoring service provider release notes, and dark web monitoring."
+    },
+    {
+        "Statement":"Securely decommission service providers. Example considerations include user and service account deactivation, termination of data flows, and secure disposal of enterprise data within service provider systems."
+    },
+    {
+        "Statement":"Manage the security life cycle of in-house developed, hosted, or acquired software to prevent, detect, and remediate security weaknesses before they can impact the enterprise."
+    },
+    {
+        "Statement":"Establish and maintain a secure application development process. In the process, address such items as: secure application design standards, secure coding practices, developer training, vulnerability management, security of third-party code, and application security testing procedures. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Apply secure design principles in application architectures. Secure design principles include the concept of least privilege and enforcing mediation to validate every operation that the user makes, promoting the concept of \"never trust user input.\" Examples include ensuring that explicit error checking is performed and documented for all input, including for size, data type, and acceptable ranges or formats. Secure design also means minimizing the application infrastructure attack surface, such as turning off unprotected ports and services, removing unnecessary programs and files, and renaming or removing default accounts."
+    },
+    {
+        "Statement":"Leverage vetted modules or services for application security components, such as identity management, encryption, and auditing and logging. Using platform features in critical security functions will reduce developers' workload and minimize the likelihood of design or implementation errors. Modern operating systems provide effective mechanisms for identification, authentication, and authorization and make those mechanisms available to applications. Use only standardized, currently accepted, and extensively reviewed encryption algorithms. Operating systems also provide mechanisms to create and maintain secure audit logs."
+    },
+    {
+        "Statement":"Apply static and dynamic analysis tools within the application life cycle to verify that secure coding practices are being followed."
+    },
+    {
+        "Statement":"Conduct application penetration testing. For critical applications, authenticated penetration testing is better suited to finding business logic vulnerabilities than code scanning and automated security testing. Penetration testing relies on the skill of the tester to manually manipulate an application as an authenticated and unauthenticated user."
+    },
+    {
+        "Statement":"Conduct threat modeling. Threat modeling is the process of identifying and addressing application security design flaws within a design, before code is created. It is conducted through specially trained individuals who evaluate the application design and gauge security risks for each entry point and access level. The goal is to map out the application, architecture, and infrastructure in a structured way to understand its weaknesses."
+    },
+    {
+        "Statement":"Establish and maintain a process to accept and address reports of software vulnerabilities, including providing a means for external entities to report. The process is to include such items as: a vulnerability handling policy that identifies reporting process, responsible party for handling vulnerability reports, and a process for intake, assignment, remediation, and remediation testing. As part of the process, use a vulnerability tracking system that includes severity ratings, and metrics for measuring timing for identification, analysis, and remediation of vulnerabilities. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.\nThird-party application developers need to consider this an externally-facing policy that helps to set expectations for outside stakeholders."
+    },
+    {
+        "Statement":"Perform root cause analysis on security vulnerabilities. When reviewing vulnerabilities, root cause analysis is the task of evaluating underlying issues that create vulnerabilities in code, and allows development teams to move beyond just fixing individual vulnerabilities as they arise."
+    },
+    {
+        "Statement":"Establish and manage an updated inventory of third-party components used in development, often referred to as a \"bill of materials,\" as well as components slated for future use. This inventory is to include any risks that each third-party component could pose. Evaluate the list at least monthly to identify any changes or updates to these components, and validate that the component is still supported."
+    },
+    {
+        "Statement":"Use up-to-date and trusted third-party software components. When possible, choose established and proven frameworks and libraries that provide adequate security. Acquire these components from trusted sources or evaluate the software for vulnerabilities before use."
+    },
+    {
+        "Statement":"Establish and maintain a severity rating system and process for application vulnerabilities that facilitates prioritizing the order in which discovered vulnerabilities are fixed. This process includes setting a minimum level of security acceptability for releasing code or applications. Severity ratings bring a systematic way of triaging vulnerabilities that improves risk management and helps ensure the most severe bugs are fixed first. Review and update the system and process annually."
+    },
+    {
+        "Statement":"Use standard, industry-recommended hardening configuration templates for application infrastructure components. This includes underlying servers, databases, and web servers, and applies to cloud containers, Platform as a Service (PaaS) components, and SaaS components. Do not allow in-house developed software to weaken configuration hardening."
+    },
+    {
+        "Statement":"Maintain separate environments for production and non-production systems."
+    },
+    {
+        "Statement":"Ensure that all software development personnel receive training in writing secure code for their specific development environment and responsibilities. Training can include general security principles and application security standard practices. Conduct training at least annually and design in a way to promote security within the development team, and build a culture of security among the developers."
+    },
+    {
+        "Statement":"Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+    },
+    {
+        "Statement":"Designate one key person, and at least one backup, who will manage the enterprise's incident handling process. Management personnel are responsible for the coordination and documentation of incident response and recovery efforts and can consist of employees internal to the enterprise, third-party vendors, or a hybrid approach. If using a third-party vendor, designate at least one person internal to the enterprise to oversee any third-party work. Review annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Establish and maintain contact information for parties that need to be informed of security incidents. Contacts may include internal staff, third-party vendors, law enforcement, cyber insurance providers, relevant government agencies, Information Sharing and Analysis Center (ISAC) partners, or other stakeholders. Verify contacts annually to ensure that information is up-to-date."
+    },
+    {
+        "Statement":"Establish and maintain an enterprise process for the workforce to report security incidents. The process includes reporting timeframe, personnel to report to, mechanism for reporting, and the minimum information to be reported. Ensure the process is publicly available to all of the workforce. Review annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Establish and maintain an incident response process that addresses roles and responsibilities, compliance requirements, and a communication plan. Review annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Assign key roles and responsibilities for incident response, including staff from legal, IT, information security, facilities, public relations, human resources, incident responders, and analysts, as applicable. Review annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Determine which primary and secondary mechanisms will be used to communicate and report during a security incident. Mechanisms can include phone calls, emails, or letters. Keep in mind that certain mechanisms, such as emails, can be affected during a security incident. Review annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Plan and conduct routine incident response exercises and scenarios for key personnel involved in the incident response process to prepare for responding to real-world incidents. Exercises need to test communication channels, decision-making, and workflows. Conduct testing on an annual basis, at a minimum."
+    },
+    {
+        "Statement":"Conduct post-incident reviews. Post-incident reviews help prevent incident recurrence through identifying lessons learned and follow-up action."
+    },
+    {
+        "Statement":"Establish and maintain security incident thresholds, including, at a minimum, differentiating between an incident and an event. Examples can include: abnormal activity, security vulnerability, security weakness, data breach, privacy incident, etc. Review annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Test the effectiveness and resiliency of enterprise assets through identifying and exploiting weaknesses in controls (people, processes, and technology), and simulating the objectives and actions of an attacker."
+    },
+    {
+        "Statement":"Establish and maintain a penetration testing program appropriate to the size, complexity, and maturity of the enterprise. Penetration testing program characteristics include scope, such as network, web application, Application Programming Interface (API), hosted services, and physical premise controls; frequency; limitations, such as acceptable hours, and excluded attack types; point of contact information; remediation, such as how findings will be routed internally; and retrospective requirements."
+    },
+    {
+        "Statement":"Perform periodic external penetration tests based on program requirements, no less than annually. External penetration testing must include enterprise and environmental reconnaissance to detect exploitable information. Penetration testing requires specialized skills and experience and must be conducted through a qualified party. The testing may be clear box or opaque box."
+    },
+    {
+        "Statement":"Remediate penetration test findings based on the enterprise's policy for remediation scope and prioritization."
+    },
+    {
+        "Statement":"Validate security measures after each penetration test. If deemed necessary, modify rulesets and capabilities to detect the techniques used during testing."
+    },
+    {
+        "Statement":"Perform periodic internal penetration tests based on program requirements, no less than annually. The testing may be clear box or opaque box."
+    },
+    {
+        "Statement":"Actively manage (inventory, track, and correct) all software (operating systems and applications) on the network so that only authorized software is installed and can execute, and that unauthorized and unmanaged software is found and prevented from installation or execution."
+    },
+    {
+        "Statement":"Establish and maintain a detailed inventory of all licensed software installed on enterprise assets. The software inventory must document the title, publisher, initial install\/use date, and business purpose for each entry; where appropriate, include the Uniform Resource Locator (URL), app store(s), version(s), deployment mechanism, and decommission date. Review and update the software inventory bi-annually, or more frequently."
+    },
+    {
+        "Statement":"Ensure that only currently supported software is designated as authorized in the software inventory for enterprise assets. If software is unsupported, yet necessary for the fulfillment of the enterprise's mission, document an exception detailing mitigating controls and residual risk acceptance. For any unsupported software without an exception documentation, designate as unauthorized. Review the software list to verify software support at least monthly, or more frequently."
+    },
+    {
+        "Statement":"Ensure that unauthorized software is either removed from use on enterprise assets or receives a documented exception. Review monthly, or more frequently."
+    },
+    {
+        "Statement":"Utilize software inventory tools, when possible, throughout the enterprise to automate the discovery and documentation of installed software."
+    },
+    {
+        "Statement":"Use technical controls, such as application allowlisting, to ensure that only authorized software can execute or be accessed. Reassess bi-annually, or more frequently."
+    },
+    {
+        "Statement":"Use technical controls to ensure that only authorized software libraries, such as specific .dll, .ocx, .so, etc., files are allowed to load into a system process. Block unauthorized libraries from loading into a system process. Reassess bi-annually, or more frequently."
+    },
+    {
+        "Statement":"Use technical controls, such as digital signatures and version control, to ensure that only authorized scripts, such as specific .ps1, .py, etc., files are allowed to execute. Block unauthorized scripts from executing. Reassess bi-annually, or more frequently."
+    },
+    {
+        "Statement":"Develop processes and technical controls to identify, classify, securely handle, retain, and dispose of data."
+    },
+    {
+        "Statement":"Establish and maintain a data management process. In the process, address data sensitivity, data owner, handling of data, data retention limits, and disposal requirements, based on sensitivity and retention standards for the enterprise. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Encrypt sensitive data in transit. Example implementations can include: Transport Layer Security (TLS) and Open Secure Shell (OpenSSH)."
+    },
+    {
+        "Statement":"Encrypt sensitive data at rest on servers, applications, and databases containing sensitive data. Storage-layer encryption, also known as server-side encryption, meets the minimum requirement of this Safeguard. Additional encryption methods may include application-layer encryption, also known as client-side encryption, where access to the data storage device(s) does not permit access to the plain-text data."
+    },
+    {
+        "Statement":"Segment data processing and storage based on the sensitivity of the data. Do not process sensitive data on enterprise assets intended for lower sensitivity data."
+    },
+    {
+        "Statement":"Implement an automated tool, such as a host-based Data Loss Prevention (DLP) tool to identify all sensitive data stored, processed, or transmitted through enterprise assets, including those located onsite or at a remote service provider, and update the enterprise's sensitive data inventory."
+    },
+    {
+        "Statement":"Log sensitive data access, including modification and disposal."
+    },
+    {
+        "Statement":"Establish and maintain a data inventory, based on the enterprise's data management process. Inventory sensitive data, at a minimum. Review and update inventory annually, at a minimum, with a priority on sensitive data."
+    },
+    {
+        "Statement":"Configure data access control lists based on a user's need to know. Apply data access control lists, also known as access permissions, to local and remote file systems, databases, and applications."
+    },
+    {
+        "Statement":"Retain data according to the enterprise's data management process. Data retention must include both minimum and maximum timelines."
+    },
+    {
+        "Statement":"Securely dispose of data as outlined in the enterprise's data management process. Ensure the disposal process and method are commensurate with the data sensitivity."
+    },
+    {
+        "Statement":"Encrypt data on end-user devices containing sensitive data. Example implementations can include: Windows BitLocker\u00ae, Apple FileVault\u00ae, Linux\u00ae dm-crypt."
+    },
+    {
+        "Statement":"Establish and maintain an overall data classification scheme for the enterprise. Enterprises may use labels, such as \"Sensitive,\" \"Confidential,\" and \"Public,\" and classify their data according to those labels. Review and update the classification scheme annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Document data flows. Data flow documentation includes service provider data flows and should be based on the enterprise's data management process. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Encrypt data on removable media."
+    },
+    {
+        "Statement":"Establish and maintain the secure configuration of enterprise assets (end-user devices, including portable and mobile; network devices; non-computing\/IoT devices; and servers) and software (operating systems and applications)."
+    },
+    {
+        "Statement":"Establish and maintain a secure configuration process for enterprise assets (end-user devices, including portable and mobile; non-computing\/IoT devices; and servers) and software (operating systems and applications). Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Enforce automatic device lockout following a predetermined threshold of local failed authentication attempts on portable end-user devices, where supported. For laptops, do not allow more than 20 failed authentication attempts; for tablets and smartphones, no more than 10 failed authentication attempts. Example implementations include Microsoft\u00ae InTune Device Lock and Apple\u00ae Configuration Profile maxFailedAttempts."
+    },
+    {
+        "Statement":"Remotely wipe enterprise data from enterprise-owned portable end-user devices when deemed appropriate such as lost or stolen devices, or when an individual no longer supports the enterprise."
+    },
+    {
+        "Statement":"Ensure separate enterprise workspaces are used on mobile end-user devices, where supported. Example implementations include using an Apple\u00ae Configuration Profile or AndroidTM Work Profile to separate enterprise applications and data from personal applications and data."
+    },
+    {
+        "Statement":"Establish and maintain a secure configuration process for network devices. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Configure automatic session locking on enterprise assets after a defined period of inactivity. For general purpose operating systems, the period must not exceed 15 minutes. For mobile end-user devices, the period must not exceed 2 minutes."
+    },
+    {
+        "Statement":"Implement and manage a firewall on servers, where supported. Example implementations include a virtual firewall, operating system firewall, or a third-party firewall agent."
+    },
+    {
+        "Statement":"Implement and manage a host-based firewall or port-filtering tool on end-user devices, with a default-deny rule that drops all traffic except those services and ports that are explicitly allowed."
+    },
+    {
+        "Statement":"Securely manage enterprise assets and software. Example implementations include managing configuration through version-controlled-infrastructure-as-code and accessing administrative interfaces over secure network protocols, such as Secure Shell (SSH) and Hypertext Transfer Protocol Secure (HTTPS). Do not use insecure management protocols, such as Telnet (Teletype Network) and HTTP, unless operationally essential."
+    },
+    {
+        "Statement":"Manage default accounts on enterprise assets and software, such as root, administrator, and other pre-configured vendor accounts. Example implementations can include: disabling default accounts or making them unusable."
+    },
+    {
+        "Statement":"Uninstall or disable unnecessary services on enterprise assets and software, such as an unused file sharing service, web application module, or service function."
+    },
+    {
+        "Statement":"Configure trusted DNS servers on enterprise assets. Example implementations include: configuring assets to use enterprise-controlled DNS servers and\/or reputable externally accessible DNS servers."
+    },
+    {
+        "Statement":"Use processes and tools to assign and manage authorization to credentials for user accounts, including administrator accounts, as well as service accounts, to enterprise assets and software."
+    },
+    {
+        "Statement":"Establish and maintain an inventory of all accounts managed in the enterprise. The inventory must include both user and administrator accounts. The inventory, at a minimum, should contain the person's name, username, start\/ stop dates, and department. Validate that all active accounts are authorized, on a recurring schedule at a minimum quarterly, or more frequently."
+    },
+    {
+        "Statement":"Use unique passwords for all enterprise assets. Best practice implementation includes, at a minimum, an 8-character password for accounts using MFA and a 14-character password for accounts not using MFA."
+    },
+    {
+        "Statement":"Delete or disable any dormant accounts after a period of 45 days of inactivity, where supported."
+    },
+    {
+        "Statement":"Restrict administrator privileges to dedicated administrator accounts on enterprise assets. Conduct general computing activities, such as internet browsing, email, and productivity suite use, from the user's primary, non-privileged account."
+    },
+    {
+        "Statement":"Establish and maintain an inventory of service accounts. The inventory, at a minimum, must contain department owner, review date, and purpose. Perform service account reviews to validate that all active accounts are authorized, on a recurring schedule at a minimum quarterly, or more frequently."
+    },
+    {
+        "Statement":"Centralize account management through a directory or identity service."
+    },
+    {
+        "Statement":"Use processes and tools to create, assign, manage, and revoke access credentials and privileges for user, administrator, and service accounts for enterprise assets and software."
+    },
+    {
+        "Statement":"Establish and follow a process, preferably automated, for granting access to enterprise assets upon new hire, rights grant, or role change of a user."
+    },
+    {
+        "Statement":"Establish and follow a process, preferably automated, for revoking access to enterprise assets, through disabling accounts immediately upon termination, rights revocation, or role change of a user. Disabling accounts, instead of deleting accounts, may be necessary to preserve audit trails."
+    },
+    {
+        "Statement":"Require all externally-exposed enterprise or third-party applications to enforce MFA, where supported. Enforcing MFA through a directory service or SSO provider is a satisfactory implementation of this Safeguard."
+    },
+    {
+        "Statement":"Require MFA for remote network access."
+    },
+    {
+        "Statement":"Require MFA for all administrative access accounts, where supported, on all enterprise assets, whether managed on-site or through a third-party provider."
+    },
+    {
+        "Statement":"Establish and maintain an inventory of the enterprise's authentication and authorization systems, including those hosted on-site or at a remote service provider. Review and update the inventory, at a minimum, annually, or more frequently."
+    },
+    {
+        "Statement":"Centralize access control for all enterprise assets through a directory service or SSO provider, where supported."
+    },
+    {
+        "Statement":"Define and maintain role-based access control, through determining and documenting the access rights necessary for each role within the enterprise to successfully carry out its assigned duties. Perform access control reviews of enterprise assets to validate that all privileges are authorized, on a recurring schedule at a minimum annually, or more frequently."
+    },
+    {
+        "Statement":"Develop a plan to continuously assess and track vulnerabilities on all enterprise assets within the enterprise's infrastructure, in order to remediate, and minimize, the window of opportunity for attackers. Monitor public and private industry sources for new threat and vulnerability information."
+    },
+    {
+        "Statement":"Establish and maintain a documented vulnerability management process for enterprise assets. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Establish and maintain a risk-based remediation strategy documented in a remediation process, with monthly, or more frequent, reviews."
+    },
+    {
+        "Statement":"Perform operating system updates on enterprise assets through automated patch management on a monthly, or more frequent, basis."
+    },
+    {
+        "Statement":"Perform application updates on enterprise assets through automated patch management on a monthly, or more frequent, basis."
+    },
+    {
+        "Statement":"Perform automated vulnerability scans of internal enterprise assets on a quarterly, or more frequent, basis. Conduct both authenticated and unauthenticated scans, using a SCAP-compliant vulnerability scanning tool."
+    },
+    {
+        "Statement":"Perform automated vulnerability scans of externally-exposed enterprise assets using a SCAP-compliant vulnerability scanning tool. Perform scans on a monthly, or more frequent, basis."
+    },
+    {
+        "Statement":"Remediate detected vulnerabilities in software through processes and tooling on a monthly, or more frequent, basis, based on the remediation process."
+    },
+    {
+        "Statement":"Collect, alert, review, and retain audit logs of events that could help detect, understand, or recover from an attack."
+    },
+    {
+        "Statement":"Establish and maintain an audit log management process that defines the enterprise's logging requirements. At a minimum, address the collection, review, and retention of audit logs for enterprise assets. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard."
+    },
+    {
+        "Statement":"Retain audit logs across enterprise assets for a minimum of 90 days."
+    },
+    {
+        "Statement":"Conduct reviews of audit logs to detect anomalies or abnormal events that could indicate a potential threat. Conduct reviews on a weekly, or more frequent, basis."
+    },
+    {
+        "Statement":"Collect service provider logs, where supported. Example implementations include collecting authentication and authorization events, data creation and disposal events, and user management events."
+    },
+    {
+        "Statement":"Collect audit logs. Ensure that logging, per the enterprise's audit log management process, has been enabled across enterprise assets."
+    },
+    {
+        "Statement":"Ensure that logging destinations maintain adequate storage to comply with the enterprise's audit log management process."
+    },
+    {
+        "Statement":"Standardize time synchronization. Configure at least two synchronized time sources across enterprise assets, where supported."
+    },
+    {
+        "Statement":"Configure detailed audit logging for enterprise assets containing sensitive data. Include event source, date, username, timestamp, source addresses, destination addresses, and other useful elements that could assist in a forensic investigation."
+    },
+    {
+        "Statement":"Collect DNS query audit logs on enterprise assets, where appropriate and supported."
+    },
+    {
+        "Statement":"Collect URL request audit logs on enterprise assets, where appropriate and supported."
+    },
+    {
+        "Statement":"Collect command-line audit logs. Example implementations include collecting audit logs from PowerShell\u00ae, BASHTM, and remote administrative terminals."
+    },
+    {
+        "Statement":"Centralize, to the extent possible, audit log collection and retention across enterprise assets."
+    },
+    {
+        "Statement":"Improve protections and detections of threats from email and web vectors, as these are opportunities for attackers to manipulate human behavior through direct engagement."
+    },
+    {
+        "Statement":"Ensure only fully supported browsers and email clients are allowed to execute in the enterprise, only using the latest version of browsers and email clients provided through the vendor."
+    },
+    {
+        "Statement":"Use DNS filtering services on all enterprise assets to block access to known malicious domains."
+    },
+    {
+        "Statement":"Enforce and update network-based URL filters to limit an enterprise asset from connecting to potentially malicious or unapproved websites. Example implementations include category-based filtering, reputation-based filtering, or through the use of block lists. Enforce filters for all enterprise assets."
+    },
+    {
+        "Statement":"Restrict, either through uninstalling or disabling, any unauthorized or unnecessary browser or email client plugins, extensions, and add-on applications."
+    },
+    {
+        "Statement":"To lower the chance of spoofed or modified emails from valid domains, implement DMARC policy and verification, starting with implementing the Sender Policy Framework (SPF) and the DomainKeys Identified Mail (DKIM) standards."
+    },
+    {
+        "Statement":"Block unnecessary file types attempting to enter the enterprise's email gateway."
+    },
+    {
+        "Statement":"Deploy and maintain email server anti-malware protections, such as attachment scanning and\/or sandboxing."
+    }
+]

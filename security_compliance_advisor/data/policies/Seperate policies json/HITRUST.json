@@ -1,0 +1,1196 @@
+[
+    {
+        "Statement":"The organization has a formal information protection program based on an accepted industry framework that is reviewed and updated as needed."
+    },
+    {
+        "Statement":"The information protection program is formally documented and actively monitored, reviewed, and updated to ensure program objectives continue to be met."
+    },
+    {
+        "Statement":"The organization has a formal information protection program based on an accepted industry framework that is reviewed and updated as needed, and the program plan is protected from unauthorized disclosure and modification."
+    },
+    {
+        "Statement":"User security roles and responsibilities are clearly defined and communicated."
+    },
+    {
+        "Statement":"The organization formally addresses the purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance requirements for its human resources security protection program (e.g., through policy, standards, guidelines, and procedures)."
+    },
+    {
+        "Statement":"The organization has an information security workforce improvement program."
+    },
+    {
+        "Statement":"The organization ensures plans for security testing, training, and monitoring activities are developed, implemented, maintained, and reviewed for consistency with the risk management strategy and response priorities."
+    },
+    {
+        "Statement":"Management ensures users are briefed on their security role(s)\/responsibilities, conform with the terms and conditions of employment prior to obtaining access to the organization\u2019s information systems; provided with guidelines regarding the security expectations of their roles; motivated to comply with security policies; and continue to have the appropriate skills and qualifications for their role(s)."
+    },
+    {
+        "Statement":"The organization employs a formal sanctions process for personnel failing to comply with established information security policies and procedures, and notifies defined personnel (e.g., supervisors) within a defined time frame (e.g., 24 hours) when a formal sanction process is initiated, identifying the individual sanctioned and the reason for the sanction. Further, the organization includes specific procedures for license, registration, and certification denial or revocation and other disciplinary action."
+    },
+    {
+        "Statement":"Information security objectives, approach, scope, importance, goals, and principles for the organization\u2019s security program are formally identified, communicated throughout the organization to users in a form that is relevant, accessible, and understandable to the intended reader; and supported by a controls framework that considers legislative, regulatory, contractual requirements, and other policy-related requirements."
+    },
+    {
+        "Statement":"The security policies are regularly reviewed and updated to ensure they reflect leading practices (e.g., for systems and services development and acquisition), and are communicated throughout the organization."
+    },
+    {
+        "Statement":"The organization ensures individuals may make complaints concerning the information security policies, procedures, or the organization's compliance with its policies and procedures; documents the complaints and requests for changes; and records their disposition, if applicable."
+    },
+    {
+        "Statement":"A senior-level information security official is appointed and is responsible for ensuring security processes are in place, communicated to all stakeholders, and consider and address organizational requirements."
+    },
+    {
+        "Statement":"Senior management assigns an individual or group to ensure the effectiveness of the information protection program through program oversight; establish and communicate the organization's priorities for organizational mission, objectives, and activities; review and update of the organization's security plan; ensure compliance with the security plan by the workforce; and evaluate and accept security risks on behalf of the organization."
+    },
+    {
+        "Statement":"Security contacts are appointed by name for each major organizational area or business unit."
+    },
+    {
+        "Statement":"Capital planning and investment requests include the resources needed to implement the security program, employ a business case (or Exhibit 300 and\/or 53 for federal government); and the organization ensures the resources are available for expenditure as planned."
+    },
+    {
+        "Statement":"If the senior-level information security official is employed by the organization, one of its affiliates, or a third-party service, the organization retains responsibility for its cybersecurity program, designates a senior member of the organization responsible for direction and oversight, and requires the third-party service to maintain an appropriate cybersecurity program of its own."
+    },
+    {
+        "Statement":"Security plans are reviewed at least every three years (prior to the plans expiration), when changes are made to the information system or information protection requirements, or when incidents occur that impact the plans' validity."
+    },
+    {
+        "Statement":"An independent review of the organization's information security management program is initiated by management to ensure the continuing suitability, adequacy, and effectiveness of the organization's approach to managing information security."
+    },
+    {
+        "Statement":"The results of independent security program reviews are recorded and reported to the management official\/office initiating the review; and the results are maintained for a predetermined period of time as determined by the organization, but not less than three years."
+    },
+    {
+        "Statement":"If an independent review identifies that the organization's approach and implementation to managing information security is inadequate or not compliant with the direction for information security stated in the information security policy document, management takes corrective actions."
+    },
+    {
+        "Statement":"An independent review of the information security management program and information security controls is conducted at least annually or whenever there is a material change to the business practices that may implicate the security or integrity of records containing personal information."
+    },
+    {
+        "Statement":"All relevant statutory, regulatory, and contractual requirements, including the specific controls and individual responsibilities to meet these requirements, are explicitly defined and formally documented (e.g., in policies and procedures, as appropriate) for each information system type, and communicated to the user community through documented security training and awareness programs."
+    },
+    {
+        "Statement":"Anti-virus and anti-spyware are installed, operating and updated on all end-user devices to conduct periodic scans of the systems to identify and remove unauthorized software. Server environments for which the server software developer specifically recommends not installing host-based anti-virus and anti-spyware software are addressed via a network-based malware detection (NBMD) solution."
+    },
+    {
+        "Statement":"Audit logs of the scans are maintained."
+    },
+    {
+        "Statement":"Protection against malicious code is based on malicious code detection and repair software, security awareness, and appropriate system access and change management controls."
+    },
+    {
+        "Statement":"The organization configures malicious code and spam protection mechanisms to (i) perform periodic scans of the information system according to organization guidelines; (ii) perform real-time scans of files from external sources at endpoints and network entry\/exit points as the files are downloaded, opened, or executed in accordance with organizational security policy; and, (iii) block malicious code, quarantine malicious code, or send an alert to the administrator in response to malicious code detection."
+    },
+    {
+        "Statement":"Automated controls (e.g., browser settings) are in place to authorize and restrict the use of mobile code (e.g., Java, JavaScript, ActiveX, PDF, postscript, Shockwave movies, and Flash animations)."
+    },
+    {
+        "Statement":"The organization has implemented and regularly updates mobile code protection, including anti-virus and anti-spyware."
+    },
+    {
+        "Statement":"The organization, based on the data classification level, registers media (including laptops) prior to use, places reasonable restrictions on how such media are used, and provides an appropriate level of physical and logical protection (including encryption) for media containing covered and\/or confidential information until properly destroyed or sanitized."
+    },
+    {
+        "Statement":"The organization protects and controls media containing sensitive information during transport outside of controlled areas."
+    },
+    {
+        "Statement":"Media is labeled, encrypted, and handled according to its classification."
+    },
+    {
+        "Statement":"The status and location of unencrypted covered information is maintained and monitored."
+    },
+    {
+        "Statement":"Mobile computing devices are protected at all times by access controls, usage restrictions, connection requirements, encryption, virus protections, host-based firewalls, or equivalent functionality, secure configurations, and physical protections."
+    },
+    {
+        "Statement":"If it is determined that encryption is not reasonable and appropriate, the organization documents its rationale and acceptance of risk."
+    },
+    {
+        "Statement":"A documented list of approved application stores has been defined as acceptable for mobile devices accessing or storing entity (client) or cloud service provider-managed client data, and the use of unapproved application stores is prohibited for company-owned and BYOD mobile devices. Non-approved applications or approved applications not obtained through approved application stores are prohibited."
+    },
+    {
+        "Statement":"The organization prohibits the circumvention of built-in security controls on mobile devices (e.g., jailbreaking or rooting)."
+    },
+    {
+        "Statement":"The organization monitors for unauthorized connections of mobile devices."
+    },
+    {
+        "Statement":"Suitable protections of the teleworking site are in place to protect against the theft of equipment and information, the unauthorized disclosure of information, and unauthorized remote access to the organization's internal systems or misuse of facilities."
+    },
+    {
+        "Statement":"Teleworking activities are only authorized if security arrangements and controls that comply with relevant security policies and organizational requirements are in place."
+    },
+    {
+        "Statement":"Vendor defaults for wireless access points are changed prior to authorizing the implementation of the access point."
+    },
+    {
+        "Statement":"Wireless access points are configured with strong encryption (AES WPA2 at a minimum)."
+    },
+    {
+        "Statement":"Wireless access points are placed in secure locations."
+    },
+    {
+        "Statement":"Annual compliance reviews are conducted by security or audit individuals using manual or automated tools; if non-compliance is found, appropriate action is taken."
+    },
+    {
+        "Statement":"The results and recommendations of the reviews are documented and approved by management."
+    },
+    {
+        "Statement":"The organization performs annual checks on the technical security configuration of systems, either manually by an individual with experience with the systems and\/or with the assistance of automated software tools, and takes appropriate action if non-compliance is found."
+    },
+    {
+        "Statement":"Changes to information assets, including systems, networks, and network services, are controlled and archived."
+    },
+    {
+        "Statement":"The organization employs integrity verification tools to detect unauthorized, security-relevant configuration changes to software and information."
+    },
+    {
+        "Statement":"Only authorized administrators are allowed to implement approved upgrades to software, applications, and program libraries, based on business requirements and the security implications of the release."
+    },
+    {
+        "Statement":"Operational systems only hold approved programs or executable code."
+    },
+    {
+        "Statement":"The organization maintains information systems according to a current baseline configuration and configures system security parameters to prevent misuse. Vendor supplied software used in operational systems is maintained at a level supported by the supplier and uses the latest version of web browsers on operational systems to take advantage of the latest security functions in the application."
+    },
+    {
+        "Statement":"If systems or system components in production are no longer supported by the developer, vendor, or manufacturer, the organization is able to provide evidence of a formal migration plan approved by management to replace the system or system components."
+    },
+    {
+        "Statement":"The operating system has in place supporting technical controls such as antivirus, file integrity monitoring, host-based (personal) firewalls or port filtering tools, and logging as part of its baseline."
+    },
+    {
+        "Statement":"The organization identifies unauthorized (blacklisted) software on the information system, including servers, workstations and laptops, employs an allow-all, deny-by-exception policy to prohibit the execution of known unauthorized (blacklisted) software on the information system, and reviews and updates the list of unauthorized (blacklisted) software periodically but no less than annually."
+    },
+    {
+        "Statement":"The organization prevents program execution in accordance with the list of unauthorized (blacklisted) software programs and rules authorizing the terms and conditions of software program usage."
+    },
+    {
+        "Statement":"Applications and operating systems are tested for usability, security, and impact prior to production."
+    },
+    {
+        "Statement":"The organization uses its configuration control program to maintain control of all implemented software and its system documentation, and archives prior versions of implemented software and associated system documentation."
+    },
+    {
+        "Statement":"A rollback strategy is in place before changes are implemented, and an audit log is maintained of all updates to operational program libraries."
+    },
+    {
+        "Statement":"Physical or logical access is only given to suppliers for support purposes when necessary, with management approval, and such access is monitored."
+    },
+    {
+        "Statement":"Managers responsible for application systems are also responsible for the strict control (security) of the project or support environment and ensure that all proposed system changes are reviewed to check that they do not compromise the security of either the system or the operating environment."
+    },
+    {
+        "Statement":"The organization manages changes to mobile device operating systems, patch levels, and\/or applications through a formal change management process."
+    },
+    {
+        "Statement":"An inventory of assets and services is maintained."
+    },
+    {
+        "Statement":"The information lifecycle manages the secure use, transfer, exchange, and disposal of IT-related assets."
+    },
+    {
+        "Statement":"The organization's asset inventory does not duplicate other inventories unnecessarily and ensures their respective content is aligned."
+    },
+    {
+        "Statement":"The organization maintains an inventory of authorized wireless access points (WAPs), including a documented business justification, to support unauthorized WAP identification and response."
+    },
+    {
+        "Statement":"If the organization assigns assets to contractors, it ensures that the procedures for assigning and monitoring the use of the property are included in the contract; and, if assigned to volunteer workers, there is a written agreement specifying how and when the property will be inventoried and how it will be returned upon completion of the volunteer assignment."
+    },
+    {
+        "Statement":"The organization creates and documents the process\/procedure the organization intends to use for deleting data from hard-drives prior to property transfer, exchange, or disposal\/surplus."
+    },
+    {
+        "Statement":"The inventory of all authorized assets includes the owner of the information asset, custodianship, categorizes the information asset according to criticality and information classification, and identifies protection and sustainment requirements commensurate with the asset's categorization."
+    },
+    {
+        "Statement":"Organizational inventories of IT assets are updated during installations, removals, and system changes, with full physical inventories performed for capital assets (at least annually) and for non-capital assets."
+    },
+    {
+        "Statement":"Applications developed by the organization are based on secure coding guidelines to prevent common vulnerabilities or undergo appropriate testing."
+    },
+    {
+        "Statement":"Procedures, guidelines, and standards for the development of applications are periodically reviewed, assessed, and updated as necessary by the appointed senior-level information security official of the organization."
+    },
+    {
+        "Statement":"Applications that store, process, or transmit covered information undergo automated application vulnerability testing by a qualified party on an annual basis."
+    },
+    {
+        "Statement":"System and information integrity requirements are developed, documented, disseminated, reviewed, and updated annually."
+    },
+    {
+        "Statement":"The information system checks the validity of organization-defined information inputs for accuracy, completeness, validity, and authenticity as close to the point of origin as possible. For in-house developed software, the organization ensures that explicit error checking is performed and documented for all input, including for size, data type, and acceptable ranges or formats."
+    },
+    {
+        "Statement":"Technical vulnerabilities are identified, evaluated for risk, and corrected in a timely manner."
+    },
+    {
+        "Statement":"The organization's security gateways (e.g., firewalls) enforce security policies; are configured to filter traffic between domains; block unauthorized access; are used to maintain segregation between internal wired, internal wireless, and external network segments (e.g., the Internet), including DMZs; and, enforce access control policies for each of the domains."
+    },
+    {
+        "Statement":"The ability of users to connect to the internal network is restricted using a deny-by-default and allow-by-exception policy at managed interfaces according to the access control policy and the requirements of its business applications."
+    },
+    {
+        "Statement":"Routing controls are implemented through security gateways (e.g., firewalls) used between internal and external networks (e.g., the Internet and third-party networks)."
+    },
+    {
+        "Statement":"The sensitivity of applications\/systems is explicitly identified and documented by the application\/system owner."
+    },
+    {
+        "Statement":"Unless the risk is identified and accepted by the data owner, sensitive systems are isolated (physically or logically) from non-sensitive applications\/systems."
+    },
+    {
+        "Statement":"The information system maintains a separate execution domain for each executing process."
+    },
+    {
+        "Statement":"Shared system resources (e.g., registers, main memory, secondary storage) are released back to the system, protected from disclosure to other systems\/applications\/users, and users cannot intentionally or unintentionally access information remnants."
+    },
+    {
+        "Statement":"A current network diagram (including wireless networks) exists, and is updated whenever there are network changes and no less than every six months."
+    },
+    {
+        "Statement":"The organization monitors for all authorized and unauthorized wireless access to the information system and prohibits installation of wireless access points (WAPs) unless explicitly authorized in writing by the CIO or his\/her designated representative."
+    },
+    {
+        "Statement":"The organization ensures the security of information in networks, availability of network services and information services using the network, and the protection of connected services from unauthorized access."
+    },
+    {
+        "Statement":"The organization formally manages equipment on the network, including equipment in user areas."
+    },
+    {
+        "Statement":"The organization ensures information systems protect the confidentiality and integrity of transmitted information, including during preparation for transmission and during reception."
+    },
+    {
+        "Statement":"Agreed services provided by a network service provider\/manager are formally managed and monitored to ensure they are provided securely."
+    },
+    {
+        "Statement":"For any public-facing web applications, application-level firewalls have been implemented to control traffic. For any public-facing applications that are not web-based, the organization has implemented a network-based firewall specific to the application type. If the traffic to the public-facing application is encrypted, the device either sits behind the encryption or is capable of decrypting the traffic prior to analysis."
+    },
+    {
+        "Statement":"The organization formally addresses multiple safeguards before allowing the use of information systems for information exchange."
+    },
+    {
+        "Statement":"The organization establishes terms and conditions, consistent with any trust relationship established with other organizations owning, operating, and\/or maintaining external information systems, allowing authorized individuals to (i) access the information system from external information systems; and (ii) process, store or transmit organization-controlled information using external information systems."
+    },
+    {
+        "Statement":"Cryptography is used to protect the confidentiality and integrity of remote access sessions to the internal network and to external systems."
+    },
+    {
+        "Statement":"Strong cryptography protocols are used to safeguard covered and\/or confidential information during transmission over less trusted\/open public networks."
+    },
+    {
+        "Statement":"The organization ensures that communication protection requirements, including the security of exchanges of information, are the subject of policy development and compliance audits."
+    },
+    {
+        "Statement":"Approvals are obtained prior to using external public services, including instant messaging or file sharing."
+    },
+    {
+        "Statement":"Stronger levels of authentication are implemented to control access from publicly accessible networks."
+    },
+    {
+        "Statement":"Stronger controls are implemented to protect certain electronic messages, and electronic messages are protected throughout the duration of its end-to-end transport path, using cryptographic mechanisms unless protected by alternative measures."
+    },
+    {
+        "Statement":"The organization never sends unencrypted sensitive information by end-user messaging technologies (e.g., email, instant messaging, and chat)."
+    },
+    {
+        "Statement":"Data involved in electronic commerce and online transactions is checked to determine if it contains covered information."
+    },
+    {
+        "Statement":"Security is maintained through all aspects of the transaction."
+    },
+    {
+        "Statement":"Protocols used to communicate between all involved parties are secured using cryptographic techniques (e.g., SSL)."
+    },
+    {
+        "Statement":"Encryption is used to protect covered and\/or confidential information on mobile\/removable media and across communication lines based on pre-determined criteria."
+    },
+    {
+        "Statement":"The organization transmits passwords only when cryptographically-protected and stores passwords using an approved hash algorithm."
+    },
+    {
+        "Statement":"The organization avoids the use of third-parties or unprotected (clear text) electronic mail messages for the dissemination of passwords."
+    },
+    {
+        "Statement":"Users acknowledge receipt of passwords."
+    },
+    {
+        "Statement":"Password policies, applicable to mobile devices, are documented and enforced through technical controls on all company devices or devices approved for BYOD usage, and prohibit the changing of password\/PIN lengths and authentication requirements."
+    },
+    {
+        "Statement":"Passwords are not displayed when entered."
+    },
+    {
+        "Statement":"The organization changes passwords for default system accounts, whenever there is any indication of password compromise, at first logon following the issuance of a temporary password, and requires immediate selection of a new password upon account recovery."
+    },
+    {
+        "Statement":"User identities are verified prior to performing password resets."
+    },
+    {
+        "Statement":"The organization maintains a list of commonly-used, expected, or compromised passwords, and updates the list (i) at least every 180 days and (ii) when organizational passwords are suspected to have been compromised (either directly or indirectly); allows users to select long passwords and passphrases, including spaces and all printable characters; employs automated tools to assist the user in selecting strong passwords and authenticators; and verifies, when users create or update passwords, that the passwords are not found on the organization-defined list of commonly-used, expected, or compromised passwords."
+    },
+    {
+        "Statement":"Passwords are not included in automated log-on processes."
+    },
+    {
+        "Statement":"Passwords are encrypted during transmission and storage on all system components."
+    },
+    {
+        "Statement":"Users sign a statement acknowledging their responsibility to keep passwords confidential."
+    },
+    {
+        "Statement":"Temporary passwords are unique and not guessable."
+    },
+    {
+        "Statement":"The password management system requires individual user IDs and passwords; forces a password change at initial log-on; does not display passwords when entered; requires vendor-supplied default passwords to be changed before \"go live\"; allows users to select and change their own passwords; and includes a confirmation procedure to allow for input errors."
+    },
+    {
+        "Statement":"The password management system enforces all password policy requirements to include the protection of passwords at rest or in transit, storage of password files separate from application data, and enforcement of quality passwords, password changes, and the prevention of password re-use."
+    },
+    {
+        "Statement":"Logical and physical access control rules and rights for each user or group of users are considered together and clearly defined in standard user access profiles (e.g., roles) for each application based on need-to-know, need-to-share, least privilege and other relevant requirements."
+    },
+    {
+        "Statement":"The access authorization process addresses all requests for access, modification of permissions\/rights\/access, removal of access, and emergency access. Further, the organization develops and disseminates\/communicates a formal access control program (e.g., through policies and procedures) and reviews and updates the program annually."
+    },
+    {
+        "Statement":"The organization maintains a current listing of all workforce members (individuals, contractors, vendors, business partners, etc.) with access to sensitive information (e.g., PII)."
+    },
+    {
+        "Statement":"User registration and de-registration formally address establishing, activating, modifying, reviewing, disabling and removing accounts."
+    },
+    {
+        "Statement":"User identities are verified prior to establishing accounts."
+    },
+    {
+        "Statement":"Default and unnecessary system accounts are removed, disabled, or otherwise secured (e.g., the passwords are changed and privileges are reduced to the lowest levels of access)."
+    },
+    {
+        "Statement":"Account managers are notified when users' access rights change (e.g., termination, change in position) and modify the user's account accordingly."
+    },
+    {
+        "Statement":"User registration and deregistration, at a minimum: communicates relevant policies to users and require acknowledgement (e.g., signed or captured electronically); checks authorization and minimum level of access necessary prior to granting access; ensures access is appropriate to the business needs (consistent with sensitivity\/risk and does not violate segregation of duties requirements); addresses termination and transfer; ensures default accounts are removed and\/or renamed; removes or blocks critical access rights of users who have changed roles or jobs; and automatically removes or disables inactive accounts."
+    },
+    {
+        "Statement":"Users are given a written statement of their access rights, which they are required to sign stating they understand the conditions of access. Guest\/anonymous, shared\/group, emergency and temporary accounts are specifically authorized and use monitored."
+    },
+    {
+        "Statement":"Account types are identified (individual, shared\/group, system, application, guest\/anonymous, emergency and temporary), conditions for group and role membership are established, and, if used, shared\/group account credentials are modified when users are removed from the group."
+    },
+    {
+        "Statement":"Group, shared or generic accounts and passwords (e.g., for first-time log-on) are not used."
+    },
+    {
+        "Statement":"Privileges are formally authorized and controlled, allocated to users on a need-to-use and event-by-event basis for their functional role (e.g., user or administrator), and documented for each system product\/element."
+    },
+    {
+        "Statement":"The organization explicitly authorizes access to specific security relevant functions (deployed in hardware, software, and firmware) and security-relevant information."
+    },
+    {
+        "Statement":"The access control system for the system components storing, processing or transmitting covered information is set with a default \"deny-all\" setting."
+    },
+    {
+        "Statement":"Role-based access control is implemented and capable of mapping each user to one or more roles, and each role to one or more system functions."
+    },
+    {
+        "Statement":"The organization promotes the development and use of programs that avoid the need to run with elevated privileges and system routines to avoid the need to grant privileges to users."
+    },
+    {
+        "Statement":"Elevated privileges are assigned to a different user ID from those used for normal business use, all users access privileged services in a single role, and such privileged access is minimized."
+    },
+    {
+        "Statement":"The organization restricts access to privileged functions and all security-relevant information."
+    },
+    {
+        "Statement":"The organization facilitates information sharing by enabling authorized users to determine a business partner's access when discretion is allowed as defined by the organization and by employing manual processes or automated mechanisms to assist users in making information sharing\/collaboration decisions."
+    },
+    {
+        "Statement":"The organization limits authorization to privileged accounts on information systems to a pre-defined subset of users."
+    },
+    {
+        "Statement":"The organization audits the execution of privileged functions on information systems and ensures information systems prevent non-privileged users from executing privileged functions."
+    },
+    {
+        "Statement":"All file system access not explicitly required is disabled, and only authorized users are permitted access to only that which is expressly required for the performance of the users' job duties."
+    },
+    {
+        "Statement":"Contractors are provided with minimal system and physical access only after the organization assesses the contractor's ability to comply with its security requirements and the contractor agrees to comply."
+    },
+    {
+        "Statement":"Access to management functions or administrative consoles for systems hosting virtualized systems are restricted to personnel based upon the principle of least privilege and supported through technical controls."
+    },
+    {
+        "Statement":"User access rights are reviewed after any changes and reallocated as necessary."
+    },
+    {
+        "Statement":"The organization maintains a documented list of authorized users of information assets."
+    },
+    {
+        "Statement":"The organization reviews critical system accounts and privileged access rights every 60 days; all other accounts, including user access and changes to access authorizations, are reviewed every 90 days."
+    },
+    {
+        "Statement":"Covered or critical business information is not left unattended or available for unauthorized individuals to access, including on desks, printers, copiers, fax machines, and computer monitors."
+    },
+    {
+        "Statement":"Strong authentication methods are implemented for all external connections to the organization\u2019s network."
+    },
+    {
+        "Statement":"Remote access by vendors and business partners (e.g., for remote maintenance) is disabled\/deactivated when not in use."
+    },
+    {
+        "Statement":"The organization protects wireless access to systems containing sensitive information by authenticating both users and devices."
+    },
+    {
+        "Statement":"Remote access to business information across public networks only takes place after successful identification and authentication."
+    },
+    {
+        "Statement":"The organization ensures that redundant user IDs are not issued to other users and that all users are uniquely identified and authenticated for both local and remote access to information systems."
+    },
+    {
+        "Statement":"Non-organizational users, or processes acting on behalf of non-organizational users, determined to need access to information residing on the organization's information systems, are uniquely identified and authenticated."
+    },
+    {
+        "Statement":"Unique IDs that can be used to trace activities to the responsible individual are required for all types of organizational and non-organizational users."
+    },
+    {
+        "Statement":"Users who perform privileged functions (e.g., system administration) use separate accounts when performing those privileged functions."
+    },
+    {
+        "Statement":"Shared\/group and generic user IDs are only used in exceptional circumstances where there is a clear business benefit, when user functions do not need to be traced, additional accountability controls are implemented, and after approval by management."
+    },
+    {
+        "Statement":"The information system employs replay-resistant authentication mechanisms such as nonce, one-time passwords, or time stamps to secure network access for privileged accounts."
+    },
+    {
+        "Statement":"Multi-factor authentication methods are used in accordance with organizational policy (e.g., for remote network access)."
+    },
+    {
+        "Statement":"When PKI-based authentication is used, the information system validates certificates by constructing and verifying a certification path to an accepted trust anchor, including checking certificate status information; enforces access to the corresponding private key; maps the identity to the corresponding account of the individual or group; and implements a local cache of revocation data to support path discovery and validation in case of an inability to access revocation information via the network."
+    },
+    {
+        "Statement":"Help desk support requires user identification for any transaction that has information security implications."
+    },
+    {
+        "Statement":"A time-out mechanism (e.g., a screen saver) pauses the session screen after 15 minutes of inactivity, closes network sessions after 30 minutes of inactivity, and requires the user to reestablish authenticated access once the session has been paused or closed; or, if the system cannot be modified, a limited form of time-out that clears the screen but does not close down the application or network sessions is used."
+    },
+    {
+        "Statement":"Bring your own device (BYOD) and\/or company-owned devices are configured to require an automatic lockout screen, and the requirement is enforced through technical controls."
+    },
+    {
+        "Statement":"Access rights to applications and application functions should be restricted in accordance with the access control policy."
+    },
+    {
+        "Statement":"Access rights from an application to other applications are controlled."
+    },
+    {
+        "Statement":"Outputs from application systems handling covered information are limited to the minimum necessary and sent only to authorized terminals\/locations."
+    },
+    {
+        "Statement":"Covered information is encrypted when stored in non-secure areas and, if not encrypted at rest, the organization documents its rationale."
+    },
+    {
+        "Statement":"Actions that can be performed without identification and authentication are permitted by exception."
+    },
+    {
+        "Statement":"Copy, move, print, and storage of sensitive data are prohibited when accessed remotely without a defined business need."
+    },
+    {
+        "Statement":"Logical and physical access authorizations to systems and equipment are reviewed, updated or revoked when there is any change in responsibility or employment."
+    },
+    {
+        "Statement":"Upon termination or changes in employment for employees, contractors, third-party users, or other workforce arrangement, physical and logical access rights and associated materials (e.g., passwords, keycards, keys, documentation that identify them as current members of the organization) are removed or modified to restrict access within 24 hours and old accounts are closed after 90 days of opening new accounts."
+    },
+    {
+        "Statement":"Access rights to information assets and facilities is reduced or removed before the employment or other workforce arrangement terminates or changes, depending on the evaluation of risk factors."
+    },
+    {
+        "Statement":"Acceptable use agreements are signed by all employees before being allowed access to information assets."
+    },
+    {
+        "Statement":"Unauthorized remote connections to the information systems are monitored and reviewed at least quarterly, and appropriate action is taken if an unauthorized connection is discovered."
+    },
+    {
+        "Statement":"The organization provides notice that the employee's actions may be monitored, and that the employee consents to such monitoring."
+    },
+    {
+        "Statement":"A secure audit record is created for all activities on the system (create, read, update, delete) involving covered and\/or confidential information."
+    },
+    {
+        "Statement":"Audit records include the unique user ID, unique data subject ID, function performed, and date\/time the event was performed."
+    },
+    {
+        "Statement":"The activities of privileged users (administrators, operators, etc.) include the success\/failure of the event, time the event occurred, the account involved, the processes involved, and additional information about the event."
+    },
+    {
+        "Statement":"Retention for audit logs are specified by the organization and the logs retained accordingly."
+    },
+    {
+        "Statement":"Logs of messages sent and received are maintained including the date, time, origin and destination of the message, but not its contents."
+    },
+    {
+        "Statement":"Auditing is always available while the system is active and tracks key events, success\/failed data access, system security configuration changes, privileged or utility use, any alarms raised, activation and de-activation of protection systems (e.g., A\/V and IDS), activation and deactivation of identification and authentication mechanisms, and creation and deletion of system-level objects."
+    },
+    {
+        "Statement":"Audit records are retained for 90 days and older audit records are archived for one year."
+    },
+    {
+        "Statement":"The organization provides a rationale for why the auditable events are deemed adequate to support after the fact investigations of security incidents and which events require auditing on a continuous basis in response to specific situations; and the listing of auditable events and supporting rational are reviewed and updated periodically within 365 days."
+    },
+    {
+        "Statement":"Audit logs are maintained for management activities, system and application startup\/shutdown\/errors, file changes, and security policy changes."
+    },
+    {
+        "Statement":"The information system generates audit records containing the following detailed information: (i) filename accessed; (ii) program or command used to initiate the event; and, (iii) source and destination addresses."
+    },
+    {
+        "Statement":"All disclosures of covered information within or outside of the organization are logged including type of disclosure, date\/time of the event, recipient, and sender."
+    },
+    {
+        "Statement":"The organization verifies every 90 days for each extract of covered information recorded that the data is erased or its use is still required."
+    },
+    {
+        "Statement":"Account creation, modification, disabling, enabling and removal actions is automatically logged and audited providing notification, as required, to appropriate individuals."
+    },
+    {
+        "Statement":"The organization specifies how often audit logs are reviewed, how the reviews are documented, and the specific roles and responsibilities of the personnel conducting the reviews, including the professional certifications or other qualifications required."
+    },
+    {
+        "Statement":"The organization periodically tests its monitoring and detection processes, remediates deficiencies, and improves its processes."
+    },
+    {
+        "Statement":"Information collected from multiple sources is aggregated for review."
+    },
+    {
+        "Statement":"All applicable legal requirements related to monitoring authorized access and unauthorized access attempts are met."
+    },
+    {
+        "Statement":"Automated systems deployed throughout the organization's environment are used to monitor key events and anomalous activity, and analyze system logs, the results of which are reviewed regularly."
+    },
+    {
+        "Statement":"The organization monitors the information system to identify irregularities or anomalies that are indicators of a system malfunction or compromise and help confirm the system is functioning in an optimal, resilient and secure state."
+    },
+    {
+        "Statement":"Monitoring includes privileged operations, authorized access or unauthorized access attempts, including attempts to access deactivated accounts, and system alerts or failures."
+    },
+    {
+        "Statement":"Auditing and monitoring systems employed by the organization support audit reduction and report generation."
+    },
+    {
+        "Statement":"The organization responds to physical security incidents and coordinates results of reviews and investigations with the organization's incident response capability."
+    },
+    {
+        "Statement":"The information system is able to automatically process audit records for events of interest based on selectable criteria."
+    },
+    {
+        "Statement":"Automated systems are used to review monitoring activities of security systems (e.g., IPS\/IDS) and system records on a daily basis, and identify and document anomalies."
+    },
+    {
+        "Statement":"Alerts are generated for technical personnel to analyze and investigate suspicious activity or suspected violations."
+    },
+    {
+        "Statement":"Automated systems support near real-time analysis and alerting of events (e.g., malicious code, potential intrusions) and integrate intrusion detection into access and flow control mechanisms."
+    },
+    {
+        "Statement":"Monitoring includes inbound and outbound communications and file integrity monitoring."
+    },
+    {
+        "Statement":"The organization analyzes and correlates audit records across different repositories using a security information and event management (SIEM) tool or log analytics tools for log aggregation and consolidation from multiple systems\/machines\/devices, and correlates this information with input from non-technical sources to gain and enhance organization-wide situational awareness. Using the SIEM tool, the organization devise profiles of common events from given systems\/machines\/devices so that it can tune detection to focus on unusual activity, avoid false positives, more rapidly identify anomalies, and prevent overwhelming analysts with insignificant alerts."
+    },
+    {
+        "Statement":"The organization ensures proper logging is enabled in order to audit administrator activities; and reviews system administrator and operator logs on a regular basis."
+    },
+    {
+        "Statement":"An intrusion detection system managed outside of the control of system and network administrators is used to monitor system and network administration activities for compliance."
+    },
+    {
+        "Statement":"Separation of duties is used to limit the risk of unauthorized or unintentional modification of information and systems."
+    },
+    {
+        "Statement":"Personnel using mobile computing devices are trained on the risks, the controls implemented, and their responsibilities (e.g., shoulder surfing, physical protections)."
+    },
+    {
+        "Statement":"Personnel who telework are trained on the risks, the controls implemented, and their responsibilities."
+    },
+    {
+        "Statement":"Employees and contractors receive documented initial (as part of their onboarding within 60 days of hire), annual, and ongoing training on their roles related to security and privacy."
+    },
+    {
+        "Statement":"The organization provides incident response and contingency training to information system users consistent with assigned roles and responsibilities within 90 days of assuming an incident response role or responsibility; when required by information system changes; and within every 365 days thereafter."
+    },
+    {
+        "Statement":"The organization provides training on BYOD usage, which includes providing an approved list of applications, application stores, and application extensions and plugins."
+    },
+    {
+        "Statement":"The organization\u2019s security awareness and training program identifies how workforce members are provided security awareness and training, and the workforce members who will receive security awareness and training; describes the types of security awareness and training that is reasonable and appropriate for its workforce members; how workforce members are provided security and awareness training when there is a change in the organization\u2019s information systems; and, how frequently security awareness and training is provided to all workforce members."
+    },
+    {
+        "Statement":"The organization ensures that the senior executives have been trained in their specific roles and responsibilities."
+    },
+    {
+        "Statement":"Employees and contractors are informed in writing that violations of the security policies will result in sanctions or disciplinary action."
+    },
+    {
+        "Statement":"The organization defines rules to describe user responsibilities and acceptable behavior for information system usage, including at a minimum, rules for email, Internet, mobile devices, social media and facility usage."
+    },
+    {
+        "Statement":"Employees, contractors and third-party system users are aware of the limits existing for their use of the organization's information and assets associated with information processing facilities and resources; and they are responsible for their use of any information resource and of any use carried out under their responsibility."
+    },
+    {
+        "Statement":"The organization prohibits users from installing unauthorized software, including data and software from external networks, and ensures users are made aware and trained on these requirements."
+    },
+    {
+        "Statement":"Personnel are appropriately trained on leading principles and practices for all types of information exchange (oral, paper and electronic)."
+    },
+    {
+        "Statement":"Access to the organization\u2019s information and systems by external parties is not permitted until due diligence has been conducted, the appropriate controls have been implemented, and a contract\/agreement reflecting the security requirements is signed acknowledging they understand and accept their obligations."
+    },
+    {
+        "Statement":"Remote access connections between the organization and external parties are encrypted."
+    },
+    {
+        "Statement":"Access granted to external parties is limited to the minimum necessary and granted only for the duration required."
+    },
+    {
+        "Statement":"The identification of risks related to external party access takes into account a minimal set of specifically defined issues."
+    },
+    {
+        "Statement":"The organization ensures that customers are aware of their obligations and rights, and accept the responsibilities and liabilities prior to accessing, processing, communicating, or managing the organization's information and information assets."
+    },
+    {
+        "Statement":"A standard agreement with third-parties is defined and includes the required security controls in accordance with the organization's security policies."
+    },
+    {
+        "Statement":"The organization identifies and mandates information security controls to specifically address supplier access to the organization's information and information assets."
+    },
+    {
+        "Statement":"The organization maintains written agreements (contracts) that include: (i) an acknowledgement that the third-party (e.g., a service provider) is responsible for the security of the data and requirements to address the associated information security risks; and, (ii) requirements to address the information security risks associated with information and communications technology services (e.g., cloud computing services) and product supply chain."
+    },
+    {
+        "Statement":"The agreement ensures that there is no misunderstanding between the organization and the third-party and satisfies the organization as to the indemnity of the third-party."
+    },
+    {
+        "Statement":"The organization establishes personnel security requirements, including security roles and responsibilities, for third-party providers that are coordinated and aligned with internal security roles and responsibilities."
+    },
+    {
+        "Statement":"The organization ensures a screening process is carried out for contractors and third-party users, and, where contractors are provided through an organization, the contract with the organization clearly specifies the organization's responsibilities for screening and the notification procedures they need to follow if screening has not been completed, or if the results give cause for doubt or concern; and, all responsibilities and notification procedures for screening."
+    },
+    {
+        "Statement":"Service Level Agreements (SLAs) or contracts with an agreed service arrangement address liability, service definitions, security controls, and other aspects of services management."
+    },
+    {
+        "Statement":"The results of monitoring activities of third-party services are compared against the Service Level Agreements or contracts at least annually."
+    },
+    {
+        "Statement":"Where software development is outsourced, formal contracts are in place to address the ownership and security of the code and application."
+    },
+    {
+        "Statement":"Sanctions are fairly applied to employees following violations of the information security policies once a breach is verified and includes consideration of multiple factors. The organization documents personnel involved in incidents, steps taken, and the timeline associated with those steps, steps taken for notification, the rationale for discipline, and the final outcome for each incident."
+    },
+    {
+        "Statement":"A list of employees involved in security incidents is maintained with the resulting outcome from the investigation."
+    },
+    {
+        "Statement":"Management approves the use of information assets and takes appropriate action when unauthorized activity occurs."
+    },
+    {
+        "Statement":"A formal security incident response program has been established to respond, report (without fear of repercussion), escalate and treat breaches and reported security events or incidents. Organization-wide standards are specified for the time required for system administrators and other personnel to report anomalous events to the incident handling team, the mechanisms for such reporting, and the kind of information that should be included in the incident notification. This reporting includes notifying internal and external stakeholders, the appropriate community Computer Emergency Response Team, and law enforcement agencies in accordance with all legal or regulatory requirements for involving such organizations in computer incidents."
+    },
+    {
+        "Statement":"There is a point of contact for reporting information security events who is made known throughout the organization, always available, and able to provide adequate and timely response. The organization also maintains a list of third-party contact information (e.g., the email addresses of their information security officers), which can be used to report a security incident."
+    },
+    {
+        "Statement":"The organization has implemented an insider threat program that includes a cross-discipline insider threat incident handling team."
+    },
+    {
+        "Statement":"Workforce members cooperate with federal or state investigations or disciplinary proceedings."
+    },
+    {
+        "Statement":"The organization takes disciplinary action against workforce members that fail to cooperate with federal and state investigations."
+    },
+    {
+        "Statement":"All employees, contractors and third-party users receive mandatory incident response training to ensure they are aware of their responsibilities to report information security events as quickly as possible, the procedure for reporting information security events, and the point(s) of contact, including the incident response team, and the contact information is published and made readily available."
+    },
+    {
+        "Statement":"The security incident response program accounts for and prepares the organization for a variety of incidents."
+    },
+    {
+        "Statement":"There is a point of contact who is responsible for coordinating incident responses and has the authority to direct actions required in all phases of the incident response process."
+    },
+    {
+        "Statement":"The organization tests and\/or exercises its incident response capability regularly."
+    },
+    {
+        "Statement":"For the purposes of determining when external parties must be notified, the organization treats security events as discovered on the first day in which the security event is or would have been known by the organization through exercising reasonable due diligence."
+    },
+    {
+        "Statement":"The information gained from the evaluation of information security incidents is used to identify recurring or high-impact incidents, and update the incident response and recovery strategy."
+    },
+    {
+        "Statement":"The organization has implemented an incident handling capability for security incidents that addresses: policy (setting corporate direction) and procedures defining roles and responsibilities; incident handling procedures (business and technical); communication; reporting and retention; and, references to a vulnerability management program."
+    },
+    {
+        "Statement":"Workforce members roles and responsibilities in the data backup process for Bring Your Own Device (BYOD) are identified and communicated to the workforce; in particular, users are required to perform backups of organizational and\/or client data on their BYOD devices."
+    },
+    {
+        "Statement":"Backup copies of information and software are made, and tests of the media and restoration procedures are regularly tested at appropriate intervals."
+    },
+    {
+        "Statement":"A formal definition of the level of backup required for each system is defined and documented including how each system will be restored, the scope of data to be imaged, frequency of imaging, and duration of retention based on relevant contractual, legal, regulatory and business requirements."
+    },
+    {
+        "Statement":"The backups are stored in a physically secure remote location, at a sufficient distance to make them reasonably immune from damage to data at the primary site, and reasonable physical and environmental controls are in place to ensure their protection at the remote location."
+    },
+    {
+        "Statement":"Inventory records for the backup copies, including content and current location, are maintained."
+    },
+    {
+        "Statement":"When the backup service is delivered by the third-party, the service level agreement includes the detailed protections to control confidentiality, integrity and availability of the backup information."
+    },
+    {
+        "Statement":"The organization ensures a current, retrievable copy of covered information is available before movement of servers."
+    },
+    {
+        "Statement":"The organization implements procedures under the disaster recovery plan (or related plans) to allow facility access in support of restoration activities in emergency-related events."
+    },
+    {
+        "Statement":"The organization identifies the critical business processes requiring business continuity."
+    },
+    {
+        "Statement":"Information security aspects of business continuity are: (i) based on identifying events (or sequence of events) that can cause interruptions to the organization's critical business processes (e.g., equipment failure, human errors, theft, fire, natural disasters acts of terrorism); (ii) followed by a risk assessment to determine the probability and impact of such interruptions, in terms of time, damage scale and recovery period; (iii) based on the results of the risk assessment, a business continuity strategy is developed to identify the overall approach to business continuity; and, (iv) once this strategy has been created, endorsement is provided by management, and a plan created and endorsed to implement this strategy."
+    },
+    {
+        "Statement":"The organization identifies its critical business processes and integrates the information security management requirements of business continuity with other continuity requirements relating to such aspects as operations, staffing, materials, transport and facilities."
+    },
+    {
+        "Statement":"Business impact analyses are used to evaluate the consequences of disasters, security failures, loss of service, and service availability."
+    },
+    {
+        "Statement":"The organization can recover and restore business operations and establish an availability of information in the time frame required by the business objectives and without a deterioration of the security measures."
+    },
+    {
+        "Statement":"The information system implements transaction recovery for systems that are transaction-based."
+    },
+    {
+        "Statement":"The contingency program addresses required capacity, identifies critical missions and business functions, defines recovery objectives and priorities, and identifies roles and responsibilities."
+    },
+    {
+        "Statement":"Copies of the business continuity plans are distributed to key contingency personnel."
+    },
+    {
+        "Statement":"The organization creates, at a minimum, one business continuity plan and ensures each plan: (i) has an owner; (ii) describes the approach for continuity, ensuring at a minimum the approach to maintain information or information asset availability and security; and, (iii) specifies the escalation plan and the conditions for its activation, as well as the individuals responsible for executing each component of the plan."
+    },
+    {
+        "Statement":"When new requirements are identified, any existing emergency procedures (e.g., evacuation plans or fallback arrangements) are amended as appropriate."
+    },
+    {
+        "Statement":"Emergency procedures, manual \"fallback\" procedures, and resumption plans are the responsibility of the owner of the business resources or processes involved; and fallback arrangements for alternative technical services, such as information processing and communications facilities, are the responsibility of the service providers."
+    },
+    {
+        "Statement":"The business continuity planning framework addresses a specific, minimal set of information security requirements."
+    },
+    {
+        "Statement":"A variety of techniques are used in order to provide assurance that the business continuity plan(s) will operate in real life."
+    },
+    {
+        "Statement":"The organization: (i) assigns responsibility for regular reviews of each business continuity plan; (ii) updates the plans when changes in business arrangements are identified; and, (iii) reviews test results and initiates corrective actions to ensure the continued effectiveness of the plan."
+    },
+    {
+        "Statement":"The organization performs risk assessments in a consistent way and at planned intervals, or when there are major changes to the organization's environment, and reviews the risk assessment results annually."
+    },
+    {
+        "Statement":"The organization uses a formal methodology with defined criteria for determining risk treatments and ensuring that corrective action plans for the security program and the associated organizational information systems are prioritized and maintained; and the remedial information security actions necessary to mitigate risk to organizational operations and assets, individuals, and other organizations are documented."
+    },
+    {
+        "Statement":"The organization mitigates any harmful effect that is known to the organization of a use or disclosure of sensitive information (e.g., PII) by the organization or its business partners, vendors, contractors, or similar third-parties in violation of its policies and procedures."
+    },
+    {
+        "Statement":"The organization has implemented an integrated control system characterized using different control types (e.g., layered, preventative, detective, corrective, and compensating) that mitigates identified risks."
+    },
+    {
+        "Statement":"A risk treatment plan that identifies risks and nonconformities, corrective actions, resources, responsibilities and priorities for managing information security risks is regularly reviewed and updated."
+    },
+    {
+        "Statement":"The risk management program includes the requirement that risk assessments be re-evaluated at least annually, or when there are significant changes in the environment."
+    },
+    {
+        "Statement":"The organization employs automated mechanisms to make security alert and advisory information available throughout the organization as needed."
+    },
+    {
+        "Statement":"The organization formally addresses the purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance with system and information integrity requirements and facilitates the implementation of system and information integrity requirements\/controls."
+    },
+    {
+        "Statement":"Information system specifications for security control requirements state that security controls are to be incorporated in the information system, supplemented by manual controls as needed, and these considerations are also applied when evaluating software packages, developed or purchased."
+    },
+    {
+        "Statement":"Security requirements and controls reflect the business value of the information assets involved, and the potential business damage that might result from a failure or absence of security."
+    },
+    {
+        "Statement":"A formal acquisition process is followed for purchased commercial products, and supplier contracts include the identified security requirements."
+    },
+    {
+        "Statement":"Where the security functionality in a proposed product does not satisfy the specified requirement, the risk introduced and associated controls are reconsidered prior to purchasing the product."
+    },
+    {
+        "Statement":"Where additional functionality is supplied and causes a security risk, the functionality is disabled or mitigated through application of additional controls."
+    },
+    {
+        "Statement":"The organization requires developers of information systems, components, and developers or providers of services to identify (document) early in the system development life cycle, the functions, ports, protocols, and services intended for organizational use."
+    },
+    {
+        "Statement":"Access to network equipment is physically protected."
+    },
+    {
+        "Statement":"Computers that store or process covered and\/or confidential information are located in rooms with doors and windows that are locked when unattended, and are not located in areas that are unattended and have unrestricted access by the public. External protection is considered for windows, particularly at ground level (public, sensitive, and restricted areas)."
+    },
+    {
+        "Statement":"Security perimeters, such as any boundaries where security controls are in place to protect assets from unauthorized access, are clearly defined, and the siting and strength of each of the perimeters depend on the security requirements of the assets within the perimeter (public, sensitive and restricted areas)."
+    },
+    {
+        "Statement":"Visitor and third-party support access is recorded and supervised unless previously approved."
+    },
+    {
+        "Statement":"Areas where sensitive information (e.g., covered information, payment card data) is stored or processed are controlled and restricted to authorized individuals only."
+    },
+    {
+        "Statement":"Repairs or modifications to the physical components of a facility which are related to security (e.g., hardware, walls, doors and locks) are documented and retained in accordance with the organization's retention policy."
+    },
+    {
+        "Statement":"The organization develops, approves and maintains a list of individuals with authorized access to the facility where the information system resides; issues authorization credentials for facility access; reviews the access list and authorization credentials periodically but no less than quarterly; and removes individuals from the facility access list when access is no longer required."
+    },
+    {
+        "Statement":"For facilities where the information system resides, the organization enforces physical access authorizations at defined entry\/exit points, maintains physical access audit logs, and provides security safeguards that the organization determines necessary for areas officially designated as publicly accessible."
+    },
+    {
+        "Statement":"The organization ensures onsite personnel and visitor identification (e.g., badges) are revoked, updated when access requirements change, or terminated when expired or when access is no longer authorized, and all physical access mechanisms, such as keys, access cards and combinations, are returned, disabled or changed."
+    },
+    {
+        "Statement":"Fire extinguishers and detectors are installed according to applicable laws and regulations."
+    },
+    {
+        "Statement":"The organization formally addresses the purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities and compliance requirements for its physical and environmental protection program (e.g., through policy, standards, guidelines, and procedures)."
+    },
+    {
+        "Statement":"The organization formally addresses the purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities and compliance requirements for its equipment maintenance program (e.g., through policy, standards, guidelines, and procedures)."
+    },
+    {
+        "Statement":"Maintenance and service are controlled and conducted by authorized personnel in accordance with supplier-recommended intervals, insurance policies and the organization\u2019s maintenance program, taking into account whether this maintenance is performed by personnel on site or external to the organization."
+    },
+    {
+        "Statement":"The organization maintains a list of authorized maintenance organizations or personnel, ensures that non-escorted personnel performing maintenance on the information system have required access authorizations, and designates organizational personnel with required access authorizations and technical competence to supervise the maintenance activities of personnel who do not possess the required access authorizations."
+    },
+    {
+        "Statement":"The organization monitors and controls non-local maintenance and diagnostic activities; and prohibits non-local system maintenance unless explicitly authorized, in writing, by the CIO or his\/her designated representative."
+    },
+    {
+        "Statement":"The organization obtains maintenance support and\/or spare parts for defined key information system components (defined in the applicable security plan) within the applicable Recovery Time Objective (RTO) specified in the contingency plan."
+    },
+    {
+        "Statement":"Electronic and physical media containing covered and\/or confidential information is securely sanitized prior to reuse, or if it cannot be sanitized, is destroyed prior to disposal."
+    },
+    {
+        "Statement":"Surplus equipment is stored securely while not in use, and disposed of or sanitized when no longer required."
+    },
+    {
+        "Statement":"The organization securely disposes of media containing sensitive information."
+    },
+    {
+        "Statement":"The organization ensures the risk of information leakage to unauthorized persons during secure media disposal is minimized. If collection and disposal services offered by other organizations are used, care is taken in selecting a suitable contractor with adequate controls and experience."
+    },
+    {
+        "Statement":"Disposal methods are commensurate with the sensitivity of the information contained on the media."
+    },
+    {
+        "Statement":"The public has access to information about the organization's security and privacy activities and is able to communicate with its senior security official and senior privacy official."
+    },
+    {
+        "Statement":"The organization documents compliance with the notice requirements by retaining copies of the notices issued by the organization for a period of six years and, if applicable, any written acknowledgements of receipt of the notice or documentation of good faith efforts to obtain such written acknowledgement."
+    },
+    {
+        "Statement":"The organization documents restrictions in writing and formally maintains such writing, or an electronic copy of such writing, as an organizational record for a period of six years."
+    },
+    {
+        "Statement":"The organization documents and maintains (i) designated record sets that are subject to access by individuals, and (ii) titles of the persons or office responsible for receiving and processing requests for access by individuals as organizational records for a period of six years."
+    },
+    {
+        "Statement":"The organization documents and maintains accountings of disclosure as organizational records for a period of six years, including the information required for disclosure, the written accounting provided to the individual, and the titles of the persons or offices responsible for receiving and processing requests for an accounting."
+    },
+    {
+        "Statement":"Important records, such as contracts, personnel records, financial information, client\/customer information, etc., of the organization are protected from loss, destruction and falsification through the implementation of security controls such as access controls, encryption, backups, electronic signatures, locked facilities or containers, etc."
+    },
+    {
+        "Statement":"Guidelines are issued and observed by the organization on the ownership, classification, retention, storage, handling and disposal of all records and information."
+    },
+    {
+        "Statement":"Designated senior management within the organization reviews and approves the security categorizations and associated guidelines."
+    },
+    {
+        "Statement":"The organization has established and implemented a formal records document retention program."
+    },
+    {
+        "Statement":"Specific controls for record storage, access, retention, and destruction have been implemented."
+    },
+    {
+        "Statement":"If retained, the organization ensures individually identifiable information is safeguarded for a period of 50 years following the date of death of the individual."
+    },
+    {
+        "Statement":"Records with sensitive personal information are protected during transfer to organizations lawfully collecting such information."
+    },
+    {
+        "Statement":"Covered and\/or confidential information storage is kept to a minimum."
+    },
+    {
+        "Statement":"The organization specifies where covered and\/or confidential information can be stored."
+    },
+    {
+        "Statement":"The organization has formally appointed a qualified data protection officer, reporting to senior management, and who is directly and fully responsible for the privacy of covered and\/or confidential information."
+    },
+    {
+        "Statement":"When required, consent is obtained before any PII (e.g., about a client\/customer) is emailed, faxed, or communicated by telephone conversation, or otherwise disclosed to\u00a0parties external to the organization."
+    },
+    {
+        "Statement":"The confidentiality and integrity of covered and\/or confidential information at rest is protected using an encryption method appropriate to the medium where it is stored; where the organization chooses not to encrypt covered and\/or confidential information, a documented rationale for not doing so is maintained or alternative compensating controls are used if the method is approved and reviewed annually by the CISO."
+    },
+    {
+        "Statement":"Group Health Plan plan documents incorporate provisions to require the plan sponsor to: i) implement administrative, physical, and technical safeguards to reasonably and appropriately protect electronic protected health information created, received, maintained, or transmitted to or by the plan sponsor on behalf of the group health plan; ii) ensure that adequate separate is supported by reasonable and appropriate security measures; iii) ensure that any agent to whom it provides this information agrees to implement reasonable and appropriate security measures to protect the information; and iv) report to the group health plan any security incident of which it becomes aware."
+    },
+    {
+        "Statement":"Workstations that can access covered and\/or confidential information are configured with specifications that address: i) proper functions to be performed, ii) the manner in which those functions are to be performed, and iii) physical attributes of the surroundings."
+    },
+    {
+        "Statement":"The Senior Agency Official for Privacy (SAOP)\/Chief Privacy Officer (CPO) periodically consults with managers of organization systems of record to ensure that the required accountings of disclosures of records are being properly maintained and provided to persons named in those records consistent with the dictates of the Privacy Act."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, provides individuals the right to receive an accounting of disclosures of certain PHI, made by the organization in the six years prior to the date on which the accounting is requested, except for where restricted by law."
+    },
+    {
+        "Statement":"The organization's, acting as a covered entity, accounting of disclosures includes, for the six years prior to the request: the date, a name and address of the entity provided the PHI, a description of the PHI disclosed, and the purpose for which the information was disclosed; and, if for research, the name of the research activity, the period of time the PHI was disclosed, the contact information of the research sponsor (name, address and phone number), and a statement that the PHI may or may not have been disclosed for a particular research activity. When requested by the individual, the covered entity provides assistance to the individual in contacting the research sponsor and researcher for an accounting."
+    },
+    {
+        "Statement":"The organization acts upon an individual's request for an accounting no later than 60 days after receipt of the request, free of charge for the first request within any 12 month period and, if informed in advance, for a reasonable cost-based fee for subsequent requests within the period."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will temporarily suspend an individual's right to receive an accounting of disclosures, at the request of a health oversight agency or law enforcement official\u2013for the time specified by such agency or official\u2013provided the agency or official furnishes the organization a written statement declaring that such an accounting to the individual would reasonably be likely to impede the agency's activities, and specifies the time for which such a suspension is required."
+    },
+    {
+        "Statement":"The organization will not use or disclose PII without a valid authorization; when feasible, appropriate, and in line with organization\u2019s policies, the organization will not share information for which an authorization is not needed, without providing the patient an opportunity to consent or object to the disclosure."
+    },
+    {
+        "Statement":"A valid authorization is required for a variety of disclosures, including the use and disclosure of psychotherapy notes or for marketing purposes."
+    },
+    {
+        "Statement":"When authorization is required, the organization, acting as a covered entity, ensures authorizations are valid by including required core elements."
+    },
+    {
+        "Statement":"If an individual's authorization is given in the context of a written declaration which also concerns other matters, the organization ensures requests for authorization are presented in a manner that is clearly distinguishable from the other matters, in an intelligible and easily accessible form, using clear and plain language."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will not create compound authorizations, except when combining authorizations for the same research study\u2013with an authorization for the creation or maintenance of a research database or repository, or with a consent to participate in research. However, an organization may combine authorizations specifically for the use or disclosure of psychotherapy notes."
+    },
+    {
+        "Statement":"When combining authorizations, the organization, acting as a covered entity, will ensure there is no condition on the provision of treatment, payments, enrollment in a health plan, or eligibility for benefits for the provision of an authorization; except as allowed for research, underwriting, and risk determinations; or disclosure of PHI to a third-party, but in no case for the use of psychotherapy notes."
+    },
+    {
+        "Statement":"Under certain conditions, an organization permits an individual, or their legally-authorized representative, to request that the organization restrict processing (e.g., uses or disclosures) of the individual's PII (e.g., to carry out treatment, payment, or healthcare operations; however, covered entities are not required to agree to a restriction)."
+    },
+    {
+        "Statement":"An organization, acting as a covered entity, that agrees to a restriction on use or disclosure documents the restriction in accordance with HIPAA \u00a7 164.530(j)."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, agrees to comply with requests by individuals for restrictions on disclosure of PHI to a health plan, for a healthcare item or service for which someone other than the health plan pays in full."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will terminate an agreement to restrictions, if (i) the individual agrees to or requests the termination in writing; (ii) an oral agreement is documented; or (iii) the organization informs the individual, and termination is effective only for PHI created, or received thereafter."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will ensure individuals who exercise any of their lawful rights, including the filing of a complaint, are not subject to intimidation, threats, discrimination, or any other retaliatory action."
+    },
+    {
+        "Statement":"If an individual does not object, the organization, acting as a covered entity, will limit PHI contained in a directory of individuals at its facility to the (i) individual's name, (ii) location, (iii) general condition, and (iv) religious affiliation, and only uses or discloses such information, for directory purposes, to members of the clergy or, except for religious affiliation, to other persons who ask for the individual by name."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will inform individuals of the PHI it may include in a directory, to whom it will disclose such information, and will provide the individual an opportunity to restrict or prohibit some or all of the disclosures."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, obtains the individual's consent or authorization\u2013 if an individual is present, or has the authority, provides the individual an opportunity to object, or reasonably infers from the circumstances that the individual does not object to disclosure of PHI."
+    },
+    {
+        "Statement":"The organization: (i) publishes rules and regulations governing how individuals may request access to records maintained in a Privacy Act system of records; (ii) publishes access procedures in System of Records Notices (SORNs); and, (iii) adheres to Privacy Act requirements and OMB policies and guidance for the proper processing of Privacy Act requests."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, acts on an individual's request for amendment within 60 days of the request, with no more than one 30-day extension."
+    },
+    {
+        "Statement":"If the request for an amendment is accepted, in whole or in part, the organization (i) makes the amendment, (ii) informs the individual that the amendment was made in a timely manner, and (iii) makes reasonable efforts to notify all required relevant parties, within a reasonable timeframe."
+    },
+    {
+        "Statement":"If a requested amendment is denied, in whole or in part, the organization, acting as a covered entity, must provide the individual (i) a written denial; (ii) permit the individual to submit a statement of disagreement; (iii) prepare a written rebuttal, if the individual submits a statement of disagreement; (iv) maintain denials, disagreements, and rebuttals as organizational records; and, (v) provide relevant information regarding any disagreements in future disclosures of the individual's PHI."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, corrects an individual's PHI if informed by another covered entity of an amendment."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will ensure that communications between a patient and a healthcare professional are made available upon request. An organization may require the individual to make a request for a confidential communication in writing."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, permits and accommodates reasonable requests by individuals, who represent they are in danger, to receive communications of PHI from the organization by alternative means or at alternative locations."
+    },
+    {
+        "Statement":"As appropriate, the organization, acting as a covered entity, only conditions requests for confidential communications on how payment, if any, will be handled and the specification of an alternative address or other method of contact; however, in no case may the organization require an explanation as to the basis of the individual's request."
+    },
+    {
+        "Statement":"With limited exceptions, the organization provides individuals the right of access to review and obtain a copy of their PII (e.g., PHI in a designated record set for as long as the record set is maintained) and provides such access in a timely manner (e.g., 30 days with no more than one 30 day extension for a designated record set) for no more than a reasonable, cost-based fee; or, if the organization does not maintain or process the PII, but knows where it's located or processed, the organization informs the individual where to direct the request. Where the individual makes the request, and unless otherwise requested by the individual, the organization provides the information in a structured, commonly-used and machine readable (electronic) format. However, the organization also ensures that the right to obtain a copy of this information does not adversely impact the rights and liberties of others."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, provides the individual access to the PHI, in the designated record set\u2013in a written or electronic form and format\u2013requested by the individual, or otherwise agreed to by the organization and the individual. Summaries of the PHI requested are only provided in lieu of the designated record set, if the individual agrees in advance to the summary and any fees imposed for providing such summary."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, only provides access to another person designated by the individual, if the individual requests such access in writing, is signed by the individual, and the request clearly identifies the designated person and where the copy of the PHI is sent."
+    },
+    {
+        "Statement":"The organization formally verifies with appropriate documentation, the identity and authority of external persons (e.g., public officials) requesting covered and\/or confidential information."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, has the ability to deny an individual access to their PHI without providing an opportunity to review, for (i) psychotherapy notes; (ii) information compiled in anticipation of legal proceedings; (iii) subject to, or exempt from, the Clinical Laboratory Improvements Amendments of 1988; (iv) the organization is a correctional facility; (v) the individual is involved in research in-progress; (vi) the information is contained in records subject to the Privacy Act; (vii) or the information was obtained from an entity other than a healthcare provider, on the promise of confidentiality."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, provides timely (30 days plus no more than a 30 day extension), written denial to an individual's request for access in plain language, that addresses the basis for denial, a statement of the individual's rights for review of the denial (e.g., review of the denial by a licensed healthcare professional), and a description of procedures for complaints to the entity and the Secretary of Health and Human Services."
+    },
+    {
+        "Statement":"The organization ensures individuals have the right to amend PII (e.g., PHI or a record about the individual in a designated record set) for as long as the PII is maintained."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will deny an individual's request for amendment only if (i) it determines the PHI or record was not created by the organization (unless the originator no longer exists), (ii) is not part of the designated record set, (iii) is not available for inspection, or (iv) is otherwise accurate and complete."
+    },
+    {
+        "Statement":"The organization, where feasible and within the limits of technology, locates and removes\/redacts specified PII and\/or uses anonymization and de-identification techniques to permit use of the retained information while reducing its sensitivity and reducing the risk resulting from disclosure."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, or business associate make reasonable efforts to limit PHI requests to\/from, other covered entity or business associate, to the minimum necessary to accomplish the intended purpose of the use, disclosure, or request. Exceptions include, but are not limited to: treatment; requests by the individual; or uses or disclosures pursuant to a valid authorization, required by law or required for compliance with other requirements, such as disclosures made to the Secretary of Health and Human Services."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, only creates and uses information that is not individually identifiable (i.e., de-identified) when a code or other means of record identification designed to enable coded, or otherwise de-identified information to be re-identified, is not disclosed. If the de-identified information is subsequently re-identified, the organization only uses or discloses such re-identified information as permitted or required for PHI."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, or business associate understands that health information is not identifiable (i.e., de-identified) only when there is no reasonable basis to believe that the information can be used to identify an individual and meets federal requirements for de-identified data."
+    },
+    {
+        "Statement":"When de-identifying PHI, the organization, acting as a covered entity, removes all 18 data elements required by the HIPAA Administrative Simplification's Privacy Rule and has no knowledge the resulting data set could be re-identified, or an appropriate person applies generally accepted scientific principles and methods for rendering information not individually identifiable and determines the risk of re-identification is appropriately small."
+    },
+    {
+        "Statement":"Unless otherwise allowed by relevant law, regulation, or contractual arrangement, the organization does not process PII revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade-union membership, nor process genetic or biometric data for the purpose of uniquely identifying an individual, data concerning health or data concerning an individual's sex life or sexual orientation."
+    },
+    {
+        "Statement":"Organizations will adopt a 'need-to-know' principle and make reasonable efforts to ensure that access to PII is given only to those who need it to conduct their official and legitimate duties. Organizations will restrict the disclosure of documents containing PII to a minimum necessary of stakeholders who need them in connection with their official and legitimate work duties."
+    },
+    {
+        "Statement":"The organization uses or discloses PII for research, only if approved by a valid IRB or privacy board, and receives appropriate representations from the researcher regarding the appropriate uses and disclosures necessary for research purposes. Documentation for a use or disclosure permitted for research, based on approval of an alteration or waiver, contain a signed, dated statement from the IRB or privacy board that confirms the necessary conditions for use or disclosure."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, discloses PHI to an individual (i) when requested or required under federal or state law, or (ii) when required by the Secretary of Health and Human Services to investigate or determine the organization's compliance with the HIPAA Privacy Rule."
+    },
+    {
+        "Statement":"The business associate discloses PHI, (i) to investigate or determine the business associate's compliance with the HIPAA Privacy Rule, as required by the Secretary of Health and Human Services; and, (ii) to the organization, acting as a covered entity, individual, or individual's designee, as necessary to satisfy an organization's obligations as described in CSF control 13.f with respect to an individual's request for an electronic copy of PHI."
+    },
+    {
+        "Statement":"A business associate only uses or discloses PHI as permitted, or required by its business associate contract or other arrangement, and does not use or disclose PHI in a manner that would violate requirements for the protection of such information, if done by the organization, acting as a covered entity, except for the purposes specified in CSF control 13.f if such uses or disclosures are permitted by its contract or other arrangement."
+    },
+    {
+        "Statement":"The organization may disclose covered and\/or confidential information to a service provider and may allow a service provider to, receive, maintain, or transmit covered and\/or confidential information on its behalf, if the organization obtains satisfactory, written assurance (e.g., a written contract, agreement or arrangement that satisfies the requirements of this control) that the service provider will appropriately safeguard the information."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, expressly permits disclosures of PHI by whistleblowers and specifies the appropriate conditions under which whistleblowers may disclose PHI."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, permits certain disclosures of PHI, by workforce members who are victims of a crime, to law enforcement and specifies the conditions under which they may disclose PHI."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, restricts the use and\/or disclosure of PHI for underwriting purposes, except as required by law."
+    },
+    {
+        "Statement":"Unless the organization is an issuer of long-term care policies, the health plan does not use or disclose PHI that is genetic information for underwriting purposes. The organization or business associate will not sell PHI."
+    },
+    {
+        "Statement":"Organizations, acting as a covered entity, with multiple functions\u2013that would be considered a combination healthcare provider, health plan, and\/or healthcare clearinghouse, ensure the use and disclosure of PHI is only for the purpose related to the appropriate function being performed."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, limits permitted use and\/or disclosure of PHI to the individual for (i) treatment, (ii) payment, (iii) or healthcare operations; or otherwise pursuant to a valid authorization or agreement."
+    },
+    {
+        "Statement":"If the organization, acting as a covered entity, discloses PHI to a family member, other relative, close personal friend of the individual, any other person identified by the individual, or to assist and locate such a person, the disclosure is limited to that PHI directly relevant to the person's involvement with the individual's care or payment related to such care, or otherwise limited to the requirements for limited use and disclosure, when the individual is not present, for disaster relief purposes, or for a deceased individual."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will ensure that it only allows use or provides disclosure of PHI to a person that is directly relevant to that person's involvement with the individual's health care, when the individual is not present, or the opportunity to agree or object to the use or disclosure cannot practicably be provided because of incapacity or emergency."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will limit disclosure of PHI to a public or private entity, authorized by law or by its charter, to assist in disaster relief efforts or emergency response."
+    },
+    {
+        "Statement":"If the individual is deceased, an organization, acting as a covered entity, only discloses to a family member, or other persons who were involved in the individual's care or payment for health care prior to the individual's death, PHI of the individual that is relevant to such person's involvement, unless doing so is inconsistent with any known prior expressed preferences."
+    },
+    {
+        "Statement":"An organization, acting as a covered entity, has the ability to use or disclose a limited data set only for the purposes of research, public health, or healthcare operations."
+    },
+    {
+        "Statement":"In certain instances, an organization uses or discloses protected health information (i) without the written authorization of the individual or the opportunity for the individual to agree or object, and (ii) to the extent that such use or disclosure is required by law and the use or disclosure complies with, and is limited to, the relevant requirements of such law."
+    },
+    {
+        "Statement":"The organization disclose PHI to law enforcement for identification and location purposes subject to specifically defined criteria, including whether or not notice or consent is provided."
+    },
+    {
+        "Statement":"The organization discloses PHI related to victims of a crime to law enforcement subject to specifically defined criteria."
+    },
+    {
+        "Statement":"The organization discloses PHI related to an individual who has died to law enforcement subject to specifically defined criteria."
+    },
+    {
+        "Statement":"The organization discloses PHI related to a crime on premises or in an emergency to law enforcement subject to specifically defined criteria."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will comply with regulatory criteria for permitted use and disclosure of PHI for public health activities for purposes including (i) preventing or controlling disease; (ii) reporting incidents of child abuse or neglect; (iii) relating to the jurisdiction of the Food and Drug Administration; (iv) intervention or investigation of communicable diseases; (v) work-related illness or injury; or (vi) to disclose proof of immunization."
+    },
+    {
+        "Statement":"The organization uses or discloses the PHI of Armed Forces personnel for activities deemed necessary by appropriate military command authorities only if the authority has published notice in the Federal Register with specific, required information."
+    },
+    {
+        "Statement":"The organization disclose PHI to authorized federal officials for the conduct of lawful intelligence, counter-intelligence, and other national security activities."
+    },
+    {
+        "Statement":"The organization disclose PHI to authorized federal officials for the provision of protective services to authorized officials or for the conduct of authorized investigations."
+    },
+    {
+        "Statement":"An organization that is a component of the Department of State uses PHI only to make determinations regarding the medical suitability of an individual to officials in the Department of State, who need access to such information for specific, defined purposes."
+    },
+    {
+        "Statement":"The organization only discloses PHI as authorized and to the extent necessary to comply with laws relating to workers' compensation or similar programs."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will disclose PHI about an individual\u2013whom the entity reasonably believes to be a victim of abuse, neglect, or domestic violence\u2013to government authorities, authorized by law, to receive such reports, only to the extent necessary and required by law, and notifies the individual when required by law."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, discloses PHI to a health oversight agency, only for those oversight activities authorized by law."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, will ensure satisfactory assurances are obtained before providing the appropriate disclosures of PHI, pursuant to court orders, subpoenas, or discovery requests for judicial and administrative proceedings."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, only discloses PHI to law enforcement for valid law enforcement purposes, when specifically defined criteria are met."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, limits disclosure of PHI to a coroner or medical examiner\u2013or a covered entity acting in the capacity of a coroner or medical examiner\u2014to that required to identify a decease person, determine a cause of death, or other duties as authorized by law. The organization limits disclosure of PHI to funeral directors, consistent with applicable law, to the minimum necessary to carry out their duties with respect to the decedent. The organization will limit use or disclose of PHI to legitimate organ procurement organizations, for the purpose of facilitating organ, eye, or tissue donation and transplantation."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, uses or discloses PHI for research, only if approved by a valid IRB or privacy board, and receives appropriate representations from the research regarding the appropriate uses and disclosures necessary for research purposes. Documentation for a use or disclosure permitted for research, based on approval of an alteration or waiver, contain a signed, dated statement from the IRB or privacy board that confirms the necessary conditions for use or disclosure."
+    },
+    {
+        "Statement":"An organization, acting as a covered entity, will use or disclose PHI, consistent with applicable law and standards of ethical conduct, to the extent allowed if the organization, in good faith, believes the use or disclosure is reasonable or necessary for safety or law enforcement."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, confirms all business associates have a valid agreement, which addresses the proper management\/oversight of the business associate and specifies applicable requirements (e.g., use, further disclosure, implementation of reasonable and appropriate safeguards)."
+    },
+    {
+        "Statement":"In an arrangement between business associate and a subcontractor, who handles PHI for the business associate, the contractual requirements apply in the same manner as such requirements apply to contracts or other arrangements between an organization, acting as a covered entity, and the business associate."
+    },
+    {
+        "Statement":"The organization, acting as a covered entity, or business associate understands when it has not obtained satisfactory assurances or met the standards for business associate contracts, and takes appropriate action if aware of a pattern, activity, or practice of the business associate that constitutes a material breach or violation of its obligations."
+    }
+]
