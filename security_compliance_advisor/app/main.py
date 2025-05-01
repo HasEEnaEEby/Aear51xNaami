@@ -89,6 +89,24 @@ def setup_streamlit():
     if css_path.exists():
         with open(css_path, "r") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    
+    # CSS to hide file navigator
+    st.markdown("""
+    <style>
+    /* Hide the file navigator in the sidebar */
+    [data-testid="stSidebarNav"],
+    .sidebar .sidebar-content > div:first-child,
+    .css-1d391kg {
+        display: none !important;
+    }
+    
+    /* Hide the X close button at the top */
+    .sidebar .sidebar-close-button,
+    button[kind="header"] {
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     # Initialize session state
     if 'current_page' not in st.session_state:
