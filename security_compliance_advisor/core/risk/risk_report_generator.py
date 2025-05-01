@@ -775,7 +775,6 @@ class RiskReportGenerator:
                 description = finding.get('title', 'No description provided')
                 level = finding.get('level', 'Medium')
                 
-                # Map level to likelihood and impact values for demo
                 level_to_likelihood = {
                     'Critical': 5,
                     'High': 4,

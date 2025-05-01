@@ -413,8 +413,7 @@ class QuestionnaireProcessor:
                 # Skip if no questions in this domain
                 if not questions:
                     continue
-                
-                # Get domain analysis
+            
                 domain_score = 0.0
                 positive_count = 0
                 total_count = 0

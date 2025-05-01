@@ -169,11 +169,11 @@ def render_sidebar():
         chat_active = "active" if st.session_state.current_page == 'chat' else ""
         chat_html = f"""
         <div class="nav-button {chat_active}" onclick="document.getElementById('nav_chat').click()">
-            💬 Chat with Advisor
+            💬 FAQ with Advisor
         </div>
         """
         st.markdown(chat_html, unsafe_allow_html=True)
-        button_chat = st.button("Chat with Advisor", key="nav_chat", help="Chat with the AI security advisor")
+        button_chat = st.button("FAQ with Advisor", key="nav_chat", help="Chat with the AI security advisor")
         if button_chat:
             st.session_state.current_page = 'chat'
             st.experimental_rerun()

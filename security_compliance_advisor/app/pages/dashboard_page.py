@@ -10,75 +10,101 @@ import plotly.express as px
 from datetime import datetime
 import os
 
-from app.utils.pdf_generator import render_pdf_download_button
+from utils.pdf_generator import generate_pdf_report, render_pdf_download_button
+from core.risk.explainable_risk_module import ExplainableRiskModule
 
 def render_dashboard_page():
     """Render the dashboard page with risk assessment results"""
-    # Check if assessment data exists
-    if st.session_state.assessment is None:
+    if "assessment" not in st.session_state or st.session_state.assessment is None:
         render_empty_dashboard()
         return
-
-    # Display assessment results
     assessment = st.session_state.assessment
-    recommendations = st.session_state.recommendations
-    
+    recommendations = st.session_state.recommendations if "recommendations" in st.session_state else []
+
+    if "explanations" not in assessment:
+        st.info("Enriching assessment data with explanations...")
+        explainable_risk = ExplainableRiskModule()
+        assessment = explainable_risk.generate_risk_explanation(assessment)
+        st.session_state.assessment = assessment
+        st.success("Assessment enriched with explanations!")
+
     # Risk Summary Section
     col1, col2, col3 = st.columns([1, 1, 1])
     
+    # Get risk data from assessment
+    risk_score = assessment.get('overall_risk_score', 0.5) * 100  # Convert to percentage
+    risk_level = assessment.get('risk_level', 'Medium')
+    
+    # Get framework compliance data
+    framework_compliance = assessment.get('framework_compliance', {})
+    avg_compliance = 0
+    if framework_compliance:
+        compliance_scores = [data.get('compliance_score', 0) for data in framework_compliance.values()]
+        avg_compliance = sum(compliance_scores) / len(compliance_scores) if compliance_scores else 0
+    
+    # Count findings by severity
+    findings = assessment.get('findings', [])
+    high_count = sum(1 for f in findings if f.get('level') in ['Critical', 'High'])
+    medium_count = sum(1 for f in findings if f.get('level') in ['Medium', 'Medium-Low'])
+    low_count = sum(1 for f in findings if f.get('level') in ['Low'])
+    
     with col1:
-        st.markdown("""
+        st.markdown(f"""
         <div class="dashboard-card">
             <h3 class="card-header">Overall Risk Score</h3>
-            <div class="dashboard-metric">68.5%</div>
-            <p>Medium Risk Level</p>
+            <div class="dashboard-metric">{risk_score:.1f}%</div>
+            <p>{risk_level} Risk Level</p>
             <div style="margin-top: 10px;">
-                <div style="background-color: #FFB74D; height: 8px; width: 68.5%; border-radius: 4px;"></div>
+                <div style="background-color: #FFB74D; height: 8px; width: {risk_score}%; border-radius: 4px;"></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown("""
+        st.markdown(f"""
         <div class="dashboard-card">
             <h3 class="card-header">Framework Compliance</h3>
-            <div class="dashboard-metric">72.5%</div>
+            <div class="dashboard-metric">{avg_compliance:.1f}%</div>
             <p>Average compliance across frameworks</p>
             <div style="margin-top: 10px;">
-                <div style="background-color: #3687d8; height: 8px; width: 72.5%; border-radius: 4px;"></div>
+                <div style="background-color: #3687d8; height: 8px; width: {avg_compliance}%; border-radius: 4px;"></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     with col3:
-        st.markdown("""
+        total_findings = len(findings)
+        st.markdown(f"""
         <div class="dashboard-card">
             <h3 class="card-header">Security Gaps</h3>
-            <div class="dashboard-metric">11</div>
+            <div class="dashboard-metric">{total_findings}</div>
             <p>Critical security areas needing attention</p>
             <div style="margin-top: 10px; display: flex; justify-content: space-between;">
-                <span>🔴 High: 4</span>
-                <span>🟠 Medium: 5</span>
-                <span>🟡 Low: 2</span>
+                <span>🔴 High: {high_count}</span>
+                <span>🟠 Medium: {medium_count}</span>
+                <span>🟡 Low: {low_count}</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     # Create tabs for different dashboard sections
-    tab1, tab2, tab3 = st.tabs(["Risk Analysis", "Compliance", "Recommendations"])
+    tab1, tab2, tab3, tab4 = st.tabs(["Risk Analysis", "Compliance", "Recommendations", "Risk Explanations"])
     
     with tab1:
         st.markdown("<div class='chart-container'>", unsafe_allow_html=True)
-        render_risk_analysis()
+        render_risk_analysis(assessment)
         st.markdown("</div>", unsafe_allow_html=True)
         
     with tab2:
         st.markdown("<div class='chart-container'>", unsafe_allow_html=True)
-        render_compliance_section()
+        render_compliance_section(assessment)
         st.markdown("</div>", unsafe_allow_html=True)
         
     with tab3:
         render_recommendations_section(recommendations)
+    
+    with tab4:
+        render_risk_explanations(assessment)
         
     # Add PDF report generation section
     st.markdown("---")
@@ -87,18 +113,82 @@ def render_dashboard_page():
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        # Vendor name input
-        vendor_name = st.text_input("Vendor Name", value="Acme Corporation")
+        # Try to extract vendor name from questionnaire if available
+        default_vendor_name = "Acme Corporation"
+        try:
+            # Extract from session state or questionnaire data if present
+            if "questionnaire_data" in st.session_state and st.session_state.questionnaire_data:
+                # Try to find vendor information in metadata
+                metadata = st.session_state.questionnaire_data.get('metadata', {})
+                if 'vendor_name' in metadata:
+                    default_vendor_name = metadata.get('vendor_name')
+                
+                # Or from the uploaded filename if available
+                elif "uploaded_file_name" in st.session_state and st.session_state.uploaded_file_name:
+                    filename = st.session_state.uploaded_file_name
+                    # Extract name from filename pattern like "Vendor_Name_Assessment.xlsx"
+                    if '_' in filename:
+                        parts = filename.split('_')
+                        if len(parts) >= 2:
+                            default_vendor_name = parts[0].replace('.', ' ').title()
+        except Exception:
+            # Fallback to default if extraction fails
+            pass
+        
+        # Vendor name input with extracted default if available
+        vendor_name = st.text_input("Vendor Name", value=default_vendor_name)
         
         # Company name input
-        company_name = st.text_input("Your Company Name", value="Your Company")
+        company_name = st.text_input("Your Company Name", value="Security Pal")
+        
+        # Report customization options
+        st.markdown("### Report Options")
+        include_explanations = st.checkbox("Include AI-generated risk explanations", value=True)
+        include_recommendations = st.checkbox("Include recommendations", value=True)
+        include_raw_findings = st.checkbox("Include raw findings data", value=False)
         
         # Generate PDF report button
-        render_pdf_download_button(
-            assessment=assessment, 
-            vendor_name=vendor_name,
-            company_name=company_name
-        )
+        if st.button("Generate PDF Report"):
+            try:
+                with st.spinner("Generating PDF report..."):
+                    # Ensure assessment has explanations before generating PDF
+                    if include_explanations and "explanations" not in assessment:
+                        explainable_risk = ExplainableRiskModule()
+                        assessment = explainable_risk.generate_risk_explanation(assessment)
+                        st.session_state.assessment = assessment
+                    
+                    # Add vendor details to assessment if not present
+                    if "vendor_details" not in assessment:
+                        assessment["vendor_details"] = {
+                            "name": vendor_name,
+                            "type": "External Vendor",
+                            "industry": "Technology"
+                        }
+                    
+                    # Generate the PDF report with options
+                    pdf_bytes = generate_pdf_report(
+                        assessment, 
+                        vendor_name, 
+                        company_name,
+                        include_explanations=include_explanations,
+                        include_recommendations=include_recommendations,
+                        include_raw_findings=include_raw_findings
+                    )
+                    
+                    # Create download button for the generated PDF
+                    filename = f"{vendor_name.replace(' ', '_')}_Risk_Assessment_{datetime.now().strftime('%Y%m%d')}.pdf"
+                    
+                    st.download_button(
+                        label="Download PDF Report",
+                        data=pdf_bytes,
+                        file_name=filename,
+                        mime="application/pdf"
+                    )
+                    
+                    st.success("PDF report generated successfully!")
+            except Exception as e:
+                st.error(f"Error generating PDF report: {str(e)}")
+                st.info("Please ensure you've uploaded and analyzed a questionnaire before generating a report.")
     
     with col2:
         st.markdown("""
@@ -110,10 +200,25 @@ def render_dashboard_page():
                 <li>Detailed risk analysis with likelihood and impact assessments</li>
                 <li>Framework compliance status</li>
                 <li>Itemized security gaps and recommendations</li>
+                <li>AI-generated risk explanations for deeper insights</li>
                 <li>Documentation review and exceptions noted</li>
                 <li>Risk matrix and scoring methodology</li>
             </ul>
             <p>This report follows industry standard risk assessment methodologies and is suitable for sharing with stakeholders and compliance teams.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Show report quality enhancement tips
+        st.markdown("""
+        <div class="card mt-3">
+            <div class="card-header">Tips for Better Reports</div>
+            <p>To enhance the quality of your PDF report:</p>
+            <ul>
+                <li><strong>Include AI explanations</strong> for deeper context on risk findings</li>
+                <li>Make sure to <strong>run the assessment</strong> first to generate comprehensive data</li>
+                <li>Use the actual <strong>vendor name</strong> for better report readability</li>
+                <li>Consider adding <strong>raw findings data</strong> for technical stakeholders</li>
+            </ul>
         </div>
         """, unsafe_allow_html=True)
 
@@ -216,54 +321,105 @@ def render_empty_dashboard():
         st.plotly_chart(fig, use_container_width=True)
 
 
-def render_risk_analysis():
+def render_risk_analysis(assessment):
     """Render the risk analysis section of the dashboard"""
     # Domain Risk Chart
     st.subheader("Security Domain Risk Analysis")
     
-    # Create domain risk data
-    domains = ["Data Protection", "Access Control", "Vulnerability Management", "Network Security", "Authentication", "Encryption"]
-    scores = [42, 55, 75, 65, 80, 58]
-    thresholds = [50, 70, 90]  # Red, Yellow, Green thresholds
+    # Extract risk by category from assessment
+    risk_by_category = assessment.get('risk_by_category', {})
     
-    # Assign colors based on thresholds
-    colors = []
-    for score in scores:
-        if score < thresholds[0]:
-            colors.append('#f44336')
-        elif score < thresholds[1]:
-            colors.append('#ff9800')
+    if risk_by_category:
+        # Prepare data for the chart
+        domains = list(risk_by_category.keys())
+        scores = [data.get('score', 0) * 100 for data in risk_by_category.values()]  # Convert to percentage
+        
+        # Ensure we have data to display
+        if domains and scores:
+            # Assign colors based on scores
+            colors = []
+            for score in scores:
+                if score < 50:
+                    colors.append('#f44336')  # Red
+                elif score < 70:
+                    colors.append('#ff9800')  # Orange
+                else:
+                    colors.append('#4caf50')  # Green
+            
+            # Create horizontal bar chart
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                y=domains,
+                x=scores,
+                orientation='h',
+                marker_color=colors,
+                text=[f"{s:.1f}%" for s in scores],
+                textposition='auto',
+                hoverinfo='text',
+                hovertext=[f"{d}: {s:.1f}% score" for d, s in zip(domains, scores)]
+            ))
+            
+            fig.update_layout(
+                xaxis_title="Score (%)",
+                yaxis=dict(
+                    title="",
+                    autorange="reversed"
+                ),
+                template="plotly_dark",
+                height=400,
+                margin=dict(l=20, r=20, t=20, b=20),
+                xaxis=dict(range=[0, 100]),
+                paper_bgcolor='rgba(37, 50, 72, 0.0)',
+                plot_bgcolor='rgba(37, 50, 72, 0.0)',
+            )
+            
+            st.plotly_chart(fig, use_container_width=True)
         else:
-            colors.append('#4caf50')
-    
-    # Create horizontal bar chart
-    fig = go.Figure()
-    fig.add_trace(go.Bar(
-        y=domains,
-        x=scores,
-        orientation='h',
-        marker_color=colors,
-        text=[f"{s}%" for s in scores],
-        textposition='auto',
-        hoverinfo='text',
-        hovertext=[f"{d}: {s}% score" for d, s in zip(domains, scores)]
-    ))
-    
-    fig.update_layout(
-        xaxis_title="Score (%)",
-        yaxis=dict(
-            title="",
-            autorange="reversed"
-        ),
-        template="plotly_dark",
-        height=400,
-        margin=dict(l=20, r=20, t=20, b=20),
-        xaxis=dict(range=[0, 100]),
-        paper_bgcolor='rgba(37, 50, 72, 0.0)',
-        plot_bgcolor='rgba(37, 50, 72, 0.0)',
-    )
-    
-    st.plotly_chart(fig, use_container_width=True)
+            st.info("No domain risk data available for visualization.")
+    else:
+        # If no real data, display sample data
+        domains = ["Data Protection", "Access Control", "Vulnerability Management", "Network Security", "Authentication", "Encryption"]
+        scores = [42, 55, 75, 65, 80, 58]
+        thresholds = [50, 70, 90]  # Red, Yellow, Green thresholds
+        
+        # Assign colors based on thresholds
+        colors = []
+        for score in scores:
+            if score < thresholds[0]:
+                colors.append('#f44336')
+            elif score < thresholds[1]:
+                colors.append('#ff9800')
+            else:
+                colors.append('#4caf50')
+        
+        # Create horizontal bar chart
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            y=domains,
+            x=scores,
+            orientation='h',
+            marker_color=colors,
+            text=[f"{s}%" for s in scores],
+            textposition='auto',
+            hoverinfo='text',
+            hovertext=[f"{d}: {s}% score" for d, s in zip(domains, scores)]
+        ))
+        
+        fig.update_layout(
+            xaxis_title="Score (%)",
+            yaxis=dict(
+                title="",
+                autorange="reversed"
+            ),
+            template="plotly_dark",
+            height=400,
+            margin=dict(l=20, r=20, t=20, b=20),
+            xaxis=dict(range=[0, 100]),
+            paper_bgcolor='rgba(37, 50, 72, 0.0)',
+            plot_bgcolor='rgba(37, 50, 72, 0.0)',
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
     
     # Risk Categories and Controls
     st.subheader("Top Risk Areas")
@@ -271,31 +427,66 @@ def render_risk_analysis():
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("""
-        <div class="card">
-            <div class="card-header">Data Protection</div>
-            <div style="color: #f44336; font-size: 24px; font-weight: bold; margin: 10px 0;">42%</div>
-            <p><b>Key Issues:</b></p>
-            <ul>
-                <li>No data encryption at rest</li>
-                <li>Weak data classification policies</li>
-                <li>Limited data loss prevention controls</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown("""
-        <div class="card">
-            <div class="card-header">Access Control</div>
-            <div style="color: #ff9800; font-size: 24px; font-weight: bold; margin: 10px 0;">55%</div>
-            <p><b>Key Issues:</b></p>
-            <ul>
-                <li>Incomplete privileged access management</li>
-                <li>No regular access review process</li>
-                <li>Inconsistent least privilege implementation</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
+        # Display top 2 risk areas from assessment data if available
+        if risk_by_category:
+            # Sort categories by score (ascending) to get the highest risk areas
+            sorted_categories = sorted(risk_by_category.items(), key=lambda x: x[1].get('score', 1))
+            
+            # Display top 2 risk areas (or less if not enough data)
+            for i in range(min(2, len(sorted_categories))):
+                category, data = sorted_categories[i]
+                score = data.get('score', 0) * 100  # Convert to percentage
+                
+                # Set color based on score
+                if score < 50:
+                    color = "#f44336"  # Red
+                elif score < 70:
+                    color = "#ff9800"  # Orange
+                else:
+                    color = "#4caf50"  # Green
+                
+                # Get key issues
+                key_issues = data.get('key_issues', [])
+                if not key_issues:
+                    key_issues = ["No specific issues identified"]
+                
+                st.markdown(f"""
+                <div class="card">
+                    <div class="card-header">{category}</div>
+                    <div style="color: {color}; font-size: 24px; font-weight: bold; margin: 10px 0;">{score:.1f}%</div>
+                    <p><b>Key Issues:</b></p>
+                    <ul>
+                        {"".join(f"<li>{issue}</li>" for issue in key_issues[:3])}
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            # Display sample data
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Data Protection</div>
+                <div style="color: #f44336; font-size: 24px; font-weight: bold; margin: 10px 0;">42%</div>
+                <p><b>Key Issues:</b></p>
+                <ul>
+                    <li>No data encryption at rest</li>
+                    <li>Weak data classification policies</li>
+                    <li>Limited data loss prevention controls</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Access Control</div>
+                <div style="color: #ff9800; font-size: 24px; font-weight: bold; margin: 10px 0;">55%</div>
+                <p><b>Key Issues:</b></p>
+                <ul>
+                    <li>Incomplete privileged access management</li>
+                    <li>No regular access review process</li>
+                    <li>Inconsistent least privilege implementation</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
     
     with col2:
         st.markdown("""
@@ -339,81 +530,255 @@ def render_risk_analysis():
         ))
         
         fig.update_layout(
-               title="Risk Assessment Matrix",
-    xaxis_title="Likelihood",
-    yaxis_title="Impact",
-    template="plotly_dark", 
-    height=400,
-    margin=dict(l=20, r=20, t=40, b=20),
-    paper_bgcolor='rgba(37, 50, 72, 0.0)',
-    plot_bgcolor='rgba(37, 50, 72, 0.0)',
+            title="Risk Assessment Matrix",
+            xaxis_title="Likelihood",
+            yaxis_title="Impact",
+            template="plotly_dark", 
+            height=400,
+            margin=dict(l=20, r=20, t=40, b=20),
+            paper_bgcolor='rgba(37, 50, 72, 0.0)',
+            plot_bgcolor='rgba(37, 50, 72, 0.0)',
         )
         
         st.plotly_chart(fig, use_container_width=True)
 
 
-def render_compliance_section():
-    """Render the compliance section of the dashboard"""
-    st.subheader("Framework Compliance")
+def render_risk_explanations(assessment):
+    """Render the AI-generated risk explanations section of the dashboard"""
+    st.subheader("AI-Generated Risk Analysis & Explanations")
     
-    # Framework compliance radar chart
-    frameworks = ["ISO 27001", "NIST CSF", "GDPR", "HIPAA", "PCI DSS", "CCPA", "CIS", "SOC 2"]
-    compliance_scores = [73, 67, 83, 76, 92, 65, 70, 80]
+    # Check if explanations exist in the assessment
+    explanations = assessment.get('explanations', {})
     
-    # Radar chart for framework compliance
-    fig = px.line_polar(
-        r=compliance_scores,
-        theta=frameworks,
-        line_close=True,
-        range_r=[0, 100],
-        color_discrete_sequence=["#3687d8"]
-    )
-    
-    fig.update_traces(fill='toself', opacity=0.7)
-    
-    fig.update_layout(
-        polar=dict(
-            radialaxis=dict(
-                visible=True,
-                range=[0, 100]
-            )
-        ),
-        template="plotly_dark",
-        height=500,
-        margin=dict(l=60, r=60, t=20, b=20),
-        paper_bgcolor='rgba(37, 50, 72, 0.0)',
-        plot_bgcolor='rgba(37, 50, 72, 0.0)',
-    )
-    
-    col1, col2 = st.columns([2, 1])
-    
-    with col1:
-        st.plotly_chart(fig, use_container_width=True)
-    
-    with col2:
+    if explanations:
+        # Display overall risk explanation
+        if 'overall_risk' in explanations:
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Overall Risk Assessment</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown(f"**{explanations['overall_risk']['title']}**")
+            st.markdown(explanations['overall_risk']['explanation'])
+        
+        # Display domain-specific explanations
+        if 'domain_explanations' in explanations and explanations['domain_explanations']:
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Domain-Specific Risk Analysis</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            for domain, data in explanations['domain_explanations'].items():
+                with st.expander(f"{domain}: {data.get('title', 'Risk Analysis')}"):
+                    st.markdown(data.get('explanation', 'No explanation available.'))
+                    
+                    # Display any related findings
+                    if 'related_findings' in data and data['related_findings']:
+                        st.markdown("**Key Findings:**")
+                        for finding in data['related_findings']:
+                            st.markdown(f"- {finding}")
+        
+        # Display compliance gap explanations
+        if 'compliance_gaps' in explanations and explanations['compliance_gaps']:
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Compliance Gap Analysis</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            for framework, data in explanations['compliance_gaps'].items():
+                with st.expander(f"{framework}: {data.get('title', 'Gap Analysis')}"):
+                    st.markdown(data.get('explanation', 'No explanation available.'))
+                    
+                    # Display key controls
+                    if 'key_controls' in data and data['key_controls']:
+                        st.markdown("**Key Controls to Implement:**")
+                        for control in data['key_controls']:
+                            st.markdown(f"- {control}")
+        
+        # Display actionable insights
+        if 'actionable_insights' in explanations and explanations['actionable_insights']:
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Actionable Security Insights</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            for insight in explanations['actionable_insights']:
+                st.markdown(f"- **{insight['title']}**: {insight['description']}")
+    else:
+        # Display sample data if no explanations are available
+        st.info("No AI-generated risk explanations available. Run the assessment with the Explainable Risk Module to generate insights.")
+        
         st.markdown("""
         <div class="card">
-            <div class="card-header">Compliance Details</div>
-            <p>Assessment against major security frameworks:</p>
+            <div class="card-header">How Explainable Risk Analysis Works</div>
+            <p>The Explainable Risk Module analyzes your security assessment data and provides:</p>
+            <ul>
+                <li>Contextual analysis of security gaps and their business impact</li>
+                <li>Correlation between different security controls and risk areas</li>
+                <li>Compliance-specific insights based on industry frameworks</li>
+                <li>Prioritized recommendations with clear rationale</li>
+                <li>Technical and business-oriented explanations for stakeholders</li>
+            </ul>
         </div>
         """, unsafe_allow_html=True)
         
-        # Display compliance details for each framework
-        for framework, score in zip(frameworks, compliance_scores):
-            color = "#f44336" if score < 60 else "#ff9800" if score < 80 else "#4caf50"
-            st.markdown(f"""
-            <div style="margin-bottom: 15px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 500;">{framework}</span>
-                    <span style="color: {color}; font-weight: bold;">{score}%</span>
+        # Sample explanation
+        st.markdown("""
+        <div style="background-color: rgba(54, 135, 216, 0.1); padding: 15px; border-radius: 4px; margin-top: 15px;">
+            <h4>Sample AI-Generated Risk Insight</h4>
+            <p>Your organization's highest risk area is Data Protection (42% score), primarily due to the lack of encryption for data at rest and inconsistent data classification. This creates significant compliance gaps in frameworks like PCI DSS (requirement 3.4) and GDPR (Article 32), which explicitly require encryption for sensitive data.</p>
+            <p>The lack of encryption correlates with weaknesses in your key management practices and creates downstream risks in your backup and recovery processes. Based on industry benchmarks, implementing encryption at rest would reduce your overall risk score by approximately a 15% and improve compliance scores across multiple frameworks.</p>
+            <p>Recommended implementation approach: Start with encrypting the most sensitive data categories (PII, financial data) using industry-standard encryption (AES-256), then expand to other data types based on your classification scheme.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_compliance_section(assessment):
+    """Render the compliance section of the dashboard"""
+    st.subheader("Framework Compliance")
+    
+    # Extract framework compliance data from the assessment
+    framework_compliance = assessment.get('framework_compliance', {})
+    
+    if framework_compliance:
+        # Get frameworks and their compliance scores
+        frameworks = []
+        compliance_scores = []
+        
+        for framework_id, data in framework_compliance.items():
+            # Format framework name for display
+            framework_name = {
+                'iso27001': 'ISO 27001',
+                'nist_csf': 'NIST CSF',
+                'pci_dss': 'PCI DSS',
+                'gdpr': 'GDPR',
+                'hipaa': 'HIPAA',
+                'ccpa': 'CCPA',
+                'cis': 'CIS Controls',
+                'hitrust': 'HITRUST CSF'
+            }.get(framework_id, framework_id)
+            
+            frameworks.append(framework_name)
+            compliance_scores.append(data.get('compliance_score', 0))
+        
+        if frameworks and compliance_scores:
+            # Radar chart for framework compliance
+            fig = px.line_polar(
+                r=compliance_scores,
+                theta=frameworks,
+                line_close=True,
+                range_r=[0, 100],
+                color_discrete_sequence=["#3687d8"]
+            )
+            
+            fig.update_traces(fill='toself', opacity=0.7)
+            
+            fig.update_layout(
+                polar=dict(
+                    radialaxis=dict(
+                        visible=True,
+                        range=[0, 100]
+                    )
+                ),
+                template="plotly_dark",
+                height=500,
+                margin=dict(l=60, r=60, t=20, b=20),
+                paper_bgcolor='rgba(37, 50, 72, 0.0)',
+                plot_bgcolor='rgba(37, 50, 72, 0.0)',
+            )
+            
+            col1, col2 = st.columns([2, 1])
+            
+            with col1:
+                st.plotly_chart(fig, use_container_width=True)
+            
+            with col2:
+                st.markdown("""
+                <div class="card">
+                    <div class="card-header">Compliance Details</div>
+                    <p>Assessment against major security frameworks:</p>
                 </div>
-                <div style="width: 100%; background-color: #1a2234; height: 6px; border-radius: 3px; margin-top: 5px;">
-                    <div style="width: {score}%; background-color: {color}; height: 6px; border-radius: 3px;"></div>
-                </div>
+                """, unsafe_allow_html=True)
+                
+                # Display compliance details for each framework
+                for framework, score in zip(frameworks, compliance_scores):
+                    color = "#f44336" if score < 60 else "#ff9800" if score < 80 else "#4caf50"
+                    st.markdown(f"""
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500;">{framework}</span>
+                            <span style="color: {color}; font-weight: bold;">{score:.1f}%</span>
+                        </div>
+                        <div style="width: 100%; background-color: #1a2234; height: 6px; border-radius: 3px; margin-top: 5px;">
+                            <div style="width: {score}%; background-color: {color}; height: 6px; border
+                            <div style="width: {score}%; background-color: {color}; height: 6px; border-radius: 3px;"></div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+        else:
+            st.info("No framework compliance data available for visualization.")
+    else:
+        # Display sample data if no real data
+        frameworks = ["ISO 27001", "NIST CSF", "GDPR", "HIPAA", "PCI DSS", "CCPA", "CIS", "SOC 2"]
+        compliance_scores = [73, 67, 83, 76, 92, 65, 70, 80]
+        
+        # Radar chart for framework compliance
+        fig = px.line_polar(
+            r=compliance_scores,
+            theta=frameworks,
+            line_close=True,
+            range_r=[0, 100],
+            color_discrete_sequence=["#3687d8"]
+        )
+        
+        fig.update_traces(fill='toself', opacity=0.7)
+        
+        fig.update_layout(
+            polar=dict(
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 100]
+                )
+            ),
+            template="plotly_dark",
+            height=500,
+            margin=dict(l=60, r=60, t=20, b=20),
+            paper_bgcolor='rgba(37, 50, 72, 0.0)',
+            plot_bgcolor='rgba(37, 50, 72, 0.0)',
+        )
+        
+        col1, col2 = st.columns([2, 1])
+        
+        with col1:
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            st.markdown("""
+            <div class="card">
+                <div class="card-header">Compliance Details</div>
+                <p>Assessment against major security frameworks:</p>
             </div>
             """, unsafe_allow_html=True)
+            
+            # Display compliance details for each framework
+            for framework, score in zip(frameworks, compliance_scores):
+                color = "#f44336" if score < 60 else "#ff9800" if score < 80 else "#4caf50"
+                st.markdown(f"""
+                <div style="margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 500;">{framework}</span>
+                        <span style="color: {color}; font-weight: bold;">{score}%</span>
+                    </div>
+                    <div style="width: 100%; background-color: #1a2234; height: 6px; border-radius: 3px; margin-top: 5px;">
+                        <div style="width: {score}%; background-color: {color}; height: 6px; border-radius: 3px;"></div>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
     
-    # Control coverage by framework
+    # Control coverage by category
     st.subheader("Control Coverage by Category")
     
     # Create control coverage data
@@ -498,452 +863,39 @@ def render_recommendations_section(recommendations):
                     st.markdown("<p><b>Detailed Actions:</b></p>", unsafe_allow_html=True)
                     for action in rec['detailed_actions']:
                         st.markdown(f"- {action}")
+                
+                # Display AI-enhanced recommendations if available
+                if 'ai_insights' in rec and rec['ai_insights']:
+                    st.markdown(f"""
+                    <div style="background-color: rgba(54, 135, 216, 0.1); padding: 10px; border-radius: 4px; margin-top: 15px;">
+                        <p><b>AI-Enhanced Insight:</b> {rec['ai_insights']}</p>
+                    </div>
+                    """, unsafe_allow_html=True)
     else:
-        # Sample recommendations for demo
-        sample_recs = [
-            {
-                'priority': 'High',
-                'category': 'Data Protection',
-                'title': 'Implement Data Encryption at Rest',
-                'description': 'Deploy encryption for all sensitive data stored in databases and file systems. Prioritize PII and financial data.',
-                'detailed_actions': [
-                    'Identify and classify sensitive data repositories',
-                    'Select appropriate encryption standards (AES-256)',
-                    'Implement key management procedures',
-                    'Deploy database and file system encryption',
-                    'Test recovery procedures with encrypted data'
-                ]
-            },
-            {
-                'priority': 'High',
-                'category': 'Access Control',
-                'title': 'Establish Privileged Access Management',
-                'description': 'Implement a PAM solution to control, monitor, and audit privileged access to critical systems and sensitive data.',
-                'detailed_actions': [
-                    'Inventory all privileged accounts',
-                    'Implement just-in-time privileged access',
-                    'Deploy session recording for privileged activities',
-                    'Establish approval workflows for privileged access',
-                    'Conduct regular privileged access reviews'
-                ]
-            },
-            {
-                'priority': 'Medium',
-                'category': 'Authentication',
-                'title': 'Enable Multi-Factor Authentication',
-                'description': 'Require MFA for all user accounts, especially those with administrative privileges or access to sensitive data.',
-                'detailed_actions': [
-                    'Select appropriate MFA methods (app-based, hardware tokens)',
-                    'Implement MFA for administrative accounts first',
-                    'Extend MFA to all user accounts',
-                    'Develop bypass procedures for emergency access',
-                    'Train users on MFA procedures'
-                ]
-            }
-        ]
+        # Display message if no recommendations available
+        st.info("No recommendations available. Run the risk assessment to generate recommendations.")
         
-        for rec in sample_recs:
-            priority = rec['priority']
-            category = rec['category']
-            title = rec['title']
-            description = rec['description']
-            detailed_actions = rec.get('detailed_actions', [])
-            
-            # Set color based on priority
-            color = {
-                'High': '#f44336',
-                'Medium': '#ff9800',
-                'Low': '#4caf50'
-            }.get(priority, '#ff9800')
-            
-            with st.expander(f"{title}"):
-                st.markdown(f"""
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <div style="background-color: {color}; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 10px;">
-                        {priority} Priority
-                    </div>
-                    <div style="background-color: rgba(54, 135, 216, 0.2); color: #3687d8; padding: 3px 8px; border-radius: 4px;">
-                        {category}
-                    </div>
-                </div>
-                
-                <p><b>Description:</b> {description}</p>
-                """, unsafe_allow_html=True)
-                
-                # Display detailed actions
-                if detailed_actions:
-                    st.markdown("<p><b>Detailed Actions:</b></p>", unsafe_allow_html=True)
-                    for action in detailed_actions:
-                        st.markdown(f"- {action}")
-        
+        # Sample recommendation for display purposes
         st.markdown("""
-        <div style="margin-top: 20px; text-align: center; color: #a0aec0; font-style: italic;">
-            This is sample recommendation data. Upload a questionnaire for personalized recommendations.
+        <div class="card">
+            <div class="card-header">Sample Recommendation</div>
+            <p><i>This is an example of what recommendations will look like once generated.</i></p>
+            <div style="display: flex; align-items: center; margin: 10px 0;">
+                <div style="background-color: #f44336; color: white; padding: 3px 8px; border-radius: 4px; margin-right: 10px;">
+                    High Priority
+                </div>
+                <div style="background-color: rgba(54, 135, 216, 0.2); color: #3687d8; padding: 3px 8px; border-radius: 4px;">
+                    Data Protection
+                </div>
+            </div>
+            <p><b>Implement Data Encryption at Rest</b></p>
+            <p>Encrypt sensitive data at rest using industry-standard encryption algorithms to protect data from unauthorized access in case of storage media compromise.</p>
+            <p><b>Detailed Actions:</b></p>
+            <ul>
+                <li>Inventory and classify all sensitive data</li>
+                <li>Implement AES-256 encryption for sensitive data</li>
+                <li>Establish proper key management procedures</li>
+                <li>Verify encryption implementation with security testing</li>
+            </ul>
         </div>
         """, unsafe_allow_html=True)
-
-
-# QAD Analyzer Component for detailed questionnaire analysis
-class QADAnalyzer:
-    """
-    Analyzes questionnaire responses (Questions, Answers, and Details)
-    to identify risk factors and provide insights.
-    """
-    
-    def __init__(self):
-        """Initialize the QAD Analyzer"""
-        # Define risk categories and critical control areas
-        self.risk_categories = [
-            "Access Control",
-            "Authentication",
-            "Data Protection",
-            "Network Security",
-            "Vulnerability Management",
-            "Incident Response",
-            "Business Continuity",
-            "Encryption",
-            "Third-Party Management",
-            "Security Governance"
-        ]
-        
-        # Define positive and negative response indicators
-        self.positive_indicators = [
-            "yes", "implemented", "complete", "compliant", "secure", 
-            "encrypted", "monitored", "regularly", "always", "documented"
-        ]
-        
-        self.negative_indicators = [
-            "no", "not implemented", "partial", "in progress", "planned", 
-            "sometimes", "rarely", "never", "none", "n/a"
-        ]
-        
-        # Critical security controls that have higher risk impact
-        self.critical_controls = [
-            "multi-factor authentication",
-            "encryption",
-            "privileged access management",
-            "vulnerability scanning",
-            "patch management",
-            "incident response plan",
-            "data backup",
-            "disaster recovery",
-            "security monitoring"
-        ]
-    
-    def analyze_questionnaire(self, questions_data):
-        """
-        Analyze questionnaire responses to identify risk factors
-        
-        Args:
-            questions_data: List of question dictionaries from the questionnaire
-            
-        Returns:
-            Analysis results including risk factors and category insights
-        """
-        results = {
-            "total_questions": len(questions_data),
-            "risk_factors": [],
-            "category_insights": {},
-            "critical_gaps": [],
-            "strengths": [],
-            "response_quality": {}
-        }
-        
-        # Initialize category counters
-        for category in self.risk_categories:
-            results["category_insights"][category] = {
-                "total": 0,
-                "positive": 0,
-                "negative": 0,
-                "score": 0.0,
-                "findings": []
-            }
-        
-        # Analyze each question and answer
-        for q_idx, question in enumerate(questions_data):
-            q_text = question.get('question', '').lower()
-            answer = question.get('answer', '').lower()
-            
-            # Skip questions without text or answers
-            if not q_text or not answer:
-                continue
-            
-            # Categorize the question
-            category = self._determine_category(q_text)
-            
-            # Analyze the response for positive/negative indicators
-            response_analysis = self._analyze_response(q_text, answer)
-            is_positive = response_analysis["is_positive"]
-            contradictions = response_analysis["contradictions"]
-            confidence = response_analysis["confidence"]
-            
-            # Update category insights
-            if category:
-                results["category_insights"][category]["total"] += 1
-                if is_positive:
-                    results["category_insights"][category]["positive"] += 1
-                else:
-                    results["category_insights"][category]["negative"] += 1
-                    
-                    # Add to findings for negative responses
-                    if confidence >= 0.6:  # Only include high confidence findings
-                        finding = {
-                            "question_id": q_idx,
-                            "question_text": q_text,
-                            "answer": answer,
-                            "confidence": confidence,
-                            "contradictions": contradictions,
-                            "is_critical": self._is_critical_control(q_text)
-                        }
-                        results["category_insights"][category]["findings"].append(finding)
-            
-            # Check for critical control gaps
-            if not is_positive and self._is_critical_control(q_text):
-                results["critical_gaps"].append({
-                    "question_id": q_idx,
-                    "category": category,
-                    "question_text": q_text,
-                    "answer": answer,
-                    "confidence": confidence
-                })
-            
-            # Identify strengths
-            if is_positive and confidence >= 0.8:
-                results["strengths"].append({
-                    "question_id": q_idx,
-                    "category": category,
-                    "question_text": q_text,
-                    "answer": answer
-                })
-            
-            # Identify risk factors from the response
-            if not is_positive and confidence >= 0.7:
-                risk_factor = {
-                    "question_id": q_idx,
-                    "category": category,
-                    "question_text": q_text,
-                    "answer": answer,
-                    "is_critical": self._is_critical_control(q_text),
-                    "impact": "High" if self._is_critical_control(q_text) else "Medium"
-                }
-                results["risk_factors"].append(risk_factor)
-        
-        # Calculate category scores
-        for category, insights in results["category_insights"].items():
-            if insights["total"] > 0:
-                insights["score"] = (insights["positive"] / insights["total"]) * 100
-            else:
-                insights["score"] = 0
-        
-        # Analyze response quality
-        results["response_quality"] = self._analyze_response_quality(questions_data)
-        
-        return results
-    
-    def _determine_category(self, question_text):
-        """Determine the security category for a question"""
-        # Simple keyword matching for categories
-        category_keywords = {
-            "Access Control": ["access control", "access management", "permission", "privilege", "authorization"],
-            "Authentication": ["authentication", "password", "mfa", "multi-factor", "identity", "login"],
-            "Data Protection": ["data protection", "privacy", "personal data", "data classification", "data loss"],
-            "Network Security": ["network", "firewall", "intrusion", "perimeter", "segmentation", "dmz"],
-            "Vulnerability Management": ["vulnerability", "patch", "update", "scan", "assessment", "penetration"],
-            "Incident Response": ["incident", "breach", "response", "alert", "detect", "siem"],
-            "Business Continuity": ["continuity", "disaster", "recovery", "backup", "resilience", "bcp", "drp"],
-            "Encryption": ["encrypt", "cryptograph", "cipher", "key management", "tls", "ssl"],
-            "Third-Party Management": ["vendor", "third party", "service provider", "supplier", "outsource"],
-            "Security Governance": ["policy", "governance", "compliance", "standard", "procedure", "management"]
-        }
-        
-        # Find the category with the most keyword matches
-        best_category = None
-        max_matches = 0
-        
-        for category, keywords in category_keywords.items():
-            matches = sum(1 for keyword in keywords if keyword in question_text)
-            if matches > max_matches:
-                max_matches = matches
-                best_category = category
-        
-        return best_category if max_matches > 0 else "General"
-    
-    def _analyze_response(self, question_text, answer):
-        """
-        Analyze a question response to determine if it's positive or negative
-        
-        Returns:
-            Dictionary with analysis results
-        """
-        # Count positive and negative indicators
-        positive_count = sum(1 for ind in self.positive_indicators if ind in answer)
-        negative_count = sum(1 for ind in self.negative_indicators if ind in answer)
-        
-        # Determine if the response is positive or negative
-        is_positive = positive_count > negative_count
-        
-        # Check for contradictions (e.g., "yes, but...")
-        contradictions = []
-        if "yes" in answer and any(q in answer for q in ["but", "however", "although"]):
-            contradictions.append("Qualified positive response")
-            is_positive = positive_count > negative_count + 1  # Higher threshold for contradiction
-        
-        if "no" in answer and any(q in answer for q in ["but", "however", "although", "planned"]):
-            contradictions.append("Qualified negative response")
-            is_positive = positive_count > negative_count  # Standard threshold
-        
-        # Calculate confidence level
-        if positive_count == 0 and negative_count == 0:
-            # No clear indicators, medium confidence
-            confidence = 0.5
-        elif positive_count > 0 and negative_count > 0:
-            # Mixed indicators, confidence based on ratio
-            total = positive_count + negative_count
-            confidence = max(positive_count, negative_count) / total
-        else:
-            # Clear indicators in one direction
-            indicator_count = max(positive_count, negative_count)
-            confidence = min(0.5 + (0.1 * indicator_count), 0.9)
-        
-        return {
-            "is_positive": is_positive,
-            "positive_count": positive_count,
-            "negative_count": negative_count,
-            "contradictions": contradictions,
-            "confidence": confidence
-        }
-    
-    def _is_critical_control(self, question_text):
-        """Determine if a question relates to a critical security control"""
-        return any(control in question_text for control in self.critical_controls)
-    
-    def _analyze_response_quality(self, questions_data):
-        """Analyze the overall quality of questionnaire responses"""
-        total_questions = len(questions_data)
-        answered_questions = sum(1 for q in questions_data if q.get('answer'))
-        empty_answers = total_questions - answered_questions
-        
-        # Count short answers (less than 5 words)
-        short_answers = sum(1 for q in questions_data if q.get('answer') and len(q.get('answer', '').split()) < 5)
-        
-        # Count detailed answers (more than 15 words)
-        detailed_answers = sum(1 for q in questions_data if q.get('answer') and len(q.get('answer', '').split()) > 15)
-        
-        # Calculate response completion percentage
-        completion_pct = (answered_questions / total_questions * 100) if total_questions > 0 else 0
-        
-        # Calculate detail level (0-100%)
-        detail_level = (detailed_answers / answered_questions * 100) if answered_questions > 0 else 0
-        
-        return {
-            "total_questions": total_questions,
-            "answered_questions": answered_questions,
-            "empty_answers": empty_answers,
-            "short_answers": short_answers,
-            "detailed_answers": detailed_answers,
-            "completion_pct": completion_pct,
-            "detail_level": detail_level
-        }
-    
-    def render_qad_analysis(self, questions_data):
-        """
-        Render the QAD analysis results in Streamlit
-        
-        Args:
-            questions_data: List of question dictionaries from the questionnaire
-        """
-        analysis = self.analyze_questionnaire(questions_data)
-        
-        st.subheader("Questionnaire Response Analysis")
-        
-        # Display response quality metrics
-        quality = analysis["response_quality"]
-        
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            st.metric("Response Completion", f"{quality['completion_pct']:.1f}%", 
-                     delta=None if quality['completion_pct'] > 90 else f"{100-quality['completion_pct']:.1f}% incomplete")
-        
-        with col2:
-            st.metric("Response Detail Level", f"{quality['detail_level']:.1f}%",
-                     delta=None if quality['detail_level'] > 70 else f"{100-quality['detail_level']:.1f}% need more detail")
-        
-        with col3:
-            detail_ratio = f"{quality['detailed_answers']}/{quality['answered_questions']}"
-            st.metric("Detailed Responses", detail_ratio,
-                     delta=None if quality['detail_level'] > 70 else "Need more detailed answers")
-        
-        # Display critical security gaps
-        st.subheader("Critical Security Control Gaps")
-        
-        if analysis["critical_gaps"]:
-            for gap in analysis["critical_gaps"]:
-                with st.expander(f"Q: {gap['question_text'][:100]}..."):
-                    st.markdown(f"**Category:** {gap['category']}")
-                    st.markdown(f"**Question:** {gap['question_text']}")
-                    st.markdown(f"**Response:** {gap['answer']}")
-                    st.markdown(f"**Confidence:** {gap['confidence']:.0%}")
-                    st.markdown(f"**Analysis:** This response indicates a gap in a critical security control.")
-        else:
-            st.info("No critical security control gaps identified.")
-        
-        # Display category insights
-        st.subheader("Security Category Analysis")
-        
-        # Filter to categories with responses
-        active_categories = {cat: data for cat, data in analysis["category_insights"].items() 
-                           if data["total"] > 0}
-        
-        if active_categories:
-            # Create data for horizontal bar chart
-            categories = list(active_categories.keys())
-            scores = [data["score"] for data in active_categories.values()]
-            
-            # Create colors based on scores
-            colors = []
-            for score in scores:
-                if score >= 80:
-                    colors.append('#4caf50')  # Green
-                elif score >= 60:
-                    colors.append('#ffb74d')  # Amber
-                else:
-                    colors.append('#f44336')  # Red
-            
-            # Create horizontal bar chart
-            fig = go.Figure()
-            fig.add_trace(go.Bar(
-                y=categories,
-                x=scores,
-                orientation='h',
-                marker_color=colors,
-                text=[f"{s:.1f}%" for s in scores],
-                textposition='auto'
-            ))
-            
-            fig.update_layout(
-                title="Security Category Scores",
-                xaxis_title="Score (%)",
-                xaxis=dict(range=[0, 100]),
-                yaxis=dict(autorange="reversed"),
-                height=400,
-                margin=dict(l=20, r=20, t=40, b=20),
-                template="plotly_dark",
-                paper_bgcolor='rgba(37, 50, 72, 0.0)',
-                plot_bgcolor='rgba(37, 50, 72, 0.0)'
-            )
-            
-            st.plotly_chart(fig, use_container_width=True)
-            
-            # Display findings for each category
-            for category, data in active_categories.items():
-                if data["findings"]:
-                    with st.expander(f"{category} ({data['score']:.1f}%) - {len(data['findings'])} issues"):
-                        for finding in data["findings"]:
-                            st.markdown(f"**Question:** {finding['question_text']}")
-                            st.markdown(f"**Response:** {finding['answer']}")
-                            st.markdown(f"**Analysis:** {'Critical control gap' if finding['is_critical'] else 'Security gap'} " +
-                                      f"(Confidence: {finding['confidence']:.0%})")
-                            st.markdown("---")
-        else:
-            st.info("No category insights available. Please upload a questionnaire with valid responses.")

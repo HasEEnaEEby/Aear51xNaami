@@ -611,11 +611,13 @@ class QuestionnairePage:
                 with st.expander(f"Q{i+1}: {question.get('question', 'Question')[:100]}..."):
                     st.write(f"**Question:** {question.get('question', 'N/A')}")
                     st.write(f"**Answer:** {question.get('answer', 'N/A')}")
-                    
+                    st.write(f"**Details:** {question.get('details', 'N/A')}")
+
                     # Show additional fields
                     st.write("**Additional Fields:**")
                     additional_fields = {k: v for k, v in question.items() 
-                                        if k not in ['question', 'answer', 'category']}
+                                        if k not in ['question', 'answer', 'details','category']}
+                    
                     
                     if additional_fields:
                         for key, value in additional_fields.items():

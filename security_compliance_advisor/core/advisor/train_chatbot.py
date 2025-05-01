@@ -100,7 +100,6 @@ def train_chatbot(args):
     else:
         logger.warning("Vector store creation failed or was skipped")
     
-    # Generate QA dataset for evaluation
     logger.info("Generating QA evaluation dataset")
     qa_path = trainer.generate_qa_dataset()
     
